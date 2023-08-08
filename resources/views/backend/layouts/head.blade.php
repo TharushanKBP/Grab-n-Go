@@ -1,19 +1,35 @@
-<head>
+<title>:: GRAB-N-GO :: Home</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="description" content="Lucid Bootstrap 4.1.1 Admin Template">
+<meta name="author" content="WrapTheme, design by: ThemeMakker.com">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>E-SHOP || DASHBOARD</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Custom fonts for this template-->
-    <link href="{{asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="{{asset('backend/css/sb-admin-2.min.css')}}" rel="stylesheet">
-    @stack('styles')
+<link rel="stylesheet" href="{{asset('backend/assets/summernote/summernote.css')}}">
 
-</head>
+
+
+<!-- VENDOR CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+<link rel="stylesheet" href="{{asset('backend/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('backend/assets/vendor/fontawesome-free/css/fontawesome-all.min.css')}}">
+<link rel="stylesheet" href="{{asset('backend/assets/vendor/jvectormap/jquery-jvectormap-2.0.3.min.css')}}" />
+<link rel="stylesheet" href="{{asset('backend/assets/vendor/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}">
+<link rel="stylesheet" href="{{asset('backend/assets/vendor/morrisjs/morris.min.css')}}" />
+<link rel="stylesheet" href="{{asset('backend/assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css')}}">
+
+
+
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="{{asset('backend/assets/css/main.css')}}">
+<link rel="stylesheet" href="{{asset('backend/assets/css/color_skins.css')}}">
+<style>
+    .icon-menu:before {
+        display: none !important
+    }
+
+    ;
+</style>
