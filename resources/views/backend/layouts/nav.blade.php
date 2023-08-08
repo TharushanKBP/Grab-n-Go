@@ -5,7 +5,7 @@
         </div>
 
         <div class="navbar-brand">
-            <a href="index.html"><img src="{{asset('backend/assets/images/logo.svg')}}" alt="Lucid Logo" class="img-responsive logo"></a>
+            <a href="index.html"><img src="{{asset('backend/assets/images/logo.png')}}" alt="Lucid Logo" class="img-responsive logo"></a>
         </div>
 
         <div class="navbar-right">
@@ -111,7 +111,7 @@
                             <i class="icon-login"></i>
                         </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        <form id="logout-form" action="{{ route('login') }}" method="POST" class="d-none">
                             @csrf
                         </form>
                     </li>
