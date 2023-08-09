@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}" />
+
     <title>Sign in & Sign up Form</title>
 </head>
 
@@ -101,7 +102,7 @@
                         Sign up
                     </button>
                 </div>
-                <img src="{{asset('backend/assets/images/sign_in/log.svg')}}" class="image" alt="" />
+                <img src="{{asset('backend/assets/images/sign_in/register.svg')}}" class="image" alt="" />
             </div>
             <div class="panel right-panel">
                 <div class="content">
@@ -114,7 +115,7 @@
                         Sign in
                     </button>
                 </div>
-                <img src="{{asset('backend/assets/images/sign_in/register.svg')}}" class="image" alt="" />
+                <img src="{{asset('backend/assets/images/sign_in/log.svg')}}" class="image" alt="" />
             </div>
         </div>
     </div>

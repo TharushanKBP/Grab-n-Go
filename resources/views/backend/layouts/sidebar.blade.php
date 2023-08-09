@@ -66,14 +66,14 @@
 
                         <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>Brand Managment</span> </a>
                             <ul>
-                                <li><a href="">All Brand</a></li>
-                                <li><a href="">Add Brand</a></li>
+                                <li><a href="{{route('brand.index')}}">All Brand</a></li>
+                                <li><a href="{{route('brand.create')}}">Add Brand</a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>User Managment</span> </a>
                             <ul>
-                                <!-- <li><a href="">All User</a></li>
-                                <li><a href="">Add User</a></li> -->
+                                <li><a href="">All User</a></li>
+                                <li><a href="">Add User</a></li>
                             </ul>
                         </li>
 
