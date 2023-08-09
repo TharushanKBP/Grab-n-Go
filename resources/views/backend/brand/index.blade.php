@@ -18,13 +18,12 @@
 
         <div class="row clearfix">
             <div class="col-lg-12">
-                @extends('backend.layouts.notification')
-            </div>
-            <div class="col-lg-12">
                 <div class="card">
                     <div class="header">
                         <h2><strong>Library</strong> List</h2>
+                        <a href="{{route('brand.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Brand</a>
                     </div>
+                    <br>
                     <div class="body">
                         <div class="table-responsive">
 
@@ -33,7 +32,6 @@
                                     <tr>
                                         <th>S.N.</th>
                                         <th>Title</th>
-                                        <th>Slug</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -43,7 +41,6 @@
                                     <tr>
                                         <td>{{$brand->id}}</td>
                                         <td>{{$brand->title}}</td>
-                                        <td>{{$brand->slug}}</td>
                                         <td>
                                             @if($brand->status=='active')
                                             <span class="badge badge-success">{{$brand->status}}</span>
