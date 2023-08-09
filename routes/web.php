@@ -28,4 +28,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     // Brand
     Route::resource('/brand', \App\Http\Controllers\BrandController::class);
     Route::post('/brand_status', [\App\Http\Controllers\BrandController::class, 'brandStatus'])->name('brand.status');
+
+    // Category
+    Route::resource('/category', \App\Http\Controllers\CategoryController::class);
+    Route::post('/category_status', [\App\Http\Controllers\CategoryController::class, 'categoryStatus'])->name('category.status');
 });

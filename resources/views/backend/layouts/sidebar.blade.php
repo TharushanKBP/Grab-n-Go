@@ -52,15 +52,14 @@
                         </li>
                         <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-graduation"></i><span>Category Managment</span> </a>
                             <ul>
-                                <li><a href="">All Category</a></li>
-                                <li><a href="">Add Category</a></li>
+                                <li><a href="{{route('category.index')}}">All Category</a></li>
+                                <li><a href="{{route('category.create')}}">Add Category</a></li>
 
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-notebook"></i><span>Product Managment</span> </a>
                             <ul>
-                                <li><a href="">All Product</a></li>
-                                <li><a href="">Add Product</a></li>
+
                             </ul>
                         </li>
 
