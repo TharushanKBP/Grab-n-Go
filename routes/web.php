@@ -32,4 +32,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     // Category
     Route::resource('/category', \App\Http\Controllers\CategoryController::class);
     Route::post('/category_status', [\App\Http\Controllers\CategoryController::class, 'categoryStatus'])->name('category.status');
+
+    // Product
+    Route::resource('/product', \App\Http\Controllers\ProductController::class);
+    Route::post('/product_status', [\App\Http\Controllers\ProductController::class, 'productStatus'])->name('product.status');
 });
