@@ -24,5 +24,21 @@ class Product extends Model
         'condition'
     ];
 
-    
+    public function brand()
+    {
+        return $this->hasOne(Brand::class, 'id', 'brand_id');
+    }
+
+    public function cat_info()
+    {
+        return $this->hasOne('App\Models\Category', 'id', 'cat_id');
+    }
+    public function sub_cat_info()
+    {
+        return $this->hasOne('App\Models\Category', 'id', 'child_cat_id');
+    }
+    public static function getAllProduct()
+    {
+        return Product::with(['cat_info', 'sub_cat_info'])->orderBy('id', 'desc')->paginate(10);
+    }
 }

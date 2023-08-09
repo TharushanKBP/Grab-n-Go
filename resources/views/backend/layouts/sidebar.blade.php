@@ -59,7 +59,8 @@
                         </li>
                         <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-notebook"></i><span>Product Managment</span> </a>
                             <ul>
-
+                                <li><a href="{{route('product.index')}}">All Product</a></li>
+                                <li><a href="{{route('product.create')}}">Add Product</a></li>
                             </ul>
                         </li>
 
