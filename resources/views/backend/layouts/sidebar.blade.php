@@ -46,8 +46,8 @@
 
                         <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-control-pause"></i><span>Banner Managment</span> </a>
                             <ul>
-                                <li><a href="">All Banner</a></li>
-                                <li><a href="">Add Banners</a></li>
+                                <li><a href="{{route('banner.index')}}">All Banner</a></li>
+                                <li><a href="{{route('banner.create')}}">Add Banners</a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-graduation"></i><span>Category Managment</span> </a>
