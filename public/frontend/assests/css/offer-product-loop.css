@@ -1,0 +1,24 @@
+.offer-product-wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+    width: 24%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #EAEEF3;
+}
+
+.offer-product-image{
+    flex: 6;
+    background-position: center center;
+    background-size: cover;
+}
+
+.offer-product-title{
+    flex: 2;
+    font-size: 14px;
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+}

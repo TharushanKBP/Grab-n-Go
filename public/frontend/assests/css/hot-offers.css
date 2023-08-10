@@ -1,0 +1,79 @@
+.hot-offers-main{
+    padding: 25px 25px 40px 25px;
+    background-color: #fff;
+}
+
+.hot-offers-main > div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.offer-title{
+    width: 100%;
+    text-align: left;
+}
+
+.banner-row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+}
+
+.offer-banner-row{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 48%;
+    justify-content: center;
+}
+    
+.offer-banner{
+    height: 280px;
+    border-radius: 10px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 50px;
+    justify-content: center;
+    color: #fff;
+}
+
+#offer-banner-1{
+    background-position: center center;
+}
+
+#offer-banner-2{
+    background-position: bottom center;
+}
+
+.up-heading{
+    font-size: 16px;
+}
+
+.discount-heading{
+    font-size: 36px;
+}
+
+.description{
+    font-size: 18px;
+}
+
+.banner-button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ffc107;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.offer-product-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}

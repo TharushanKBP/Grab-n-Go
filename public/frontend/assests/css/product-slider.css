@@ -1,0 +1,96 @@
+.product-slider-main {
+    padding: 25px 25px 35px 25px;
+    background: rgba(255, 199, 14, 0.01);
+    overflow: hidden; /* Hide extra slides */
+}
+
+.product-content-main{
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+.slider-content-main{
+    overflow: hidden;
+}
+
+.product-slider-header {
+    display: flex;
+    align-items: center;
+}
+
+.slider-up-left {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.product-offers{
+    text-decoration: none;
+}
+
+.slider-up-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.slider-buttons button {
+    padding: 10px 12px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    color: #000;
+    background-color: rgba(255, 197, 14, 0.01);
+}
+
+#productCarousel {
+    display: flex;
+    justify-content: flex-start;
+    gap: 80px;
+    transition: transform 1s ease;
+}
+
+.ps-single-slide {
+    min-width: 100%;
+    align-items: center;
+    display: flex;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+}
+
+.cs-slide-content{
+    width: 100%;
+    padding: 25px;
+    color: #fff!important;
+}
+
+.cs-slide-content > h2{
+    font-size: 20px;
+}
+
+.cs-slide-content > span{
+    font-size: 12px;
+}
+
+/* Responsive Media Queries */
+@media (min-width: 768px) {
+    .ps-single-slide {
+        min-width: 45%;
+    }
+
+    #productCarousel{
+        gap: 50px;
+    }
+}
+
+@media (min-width: 992px) {
+    .ps-single-slide {
+        min-width: 23%;
+    }
+
+    #productCarousel{
+        gap: 30px;
+    }
+}

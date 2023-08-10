@@ -1,0 +1,102 @@
+.main-content > div > div{
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+
+.flex3{
+    flex: 3;
+}
+
+.flex2{
+    flex: 2;
+}
+
+.slide-item{
+    background-size: cover;
+    background-position: center;
+    height: 480px;
+    border-radius: 10px;
+    color: #fff;
+    position: relative;
+}
+
+.inner-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 50px;
+    margin: auto;
+}
+
+.inner-content > button{
+    width: 45%;
+    background-color: #ffc107;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.inner-content > h2{
+    font-size: 30px;
+}
+
+.inner-content > p{
+    font-size: 18px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-50%);
+}
+
+.carousel-indicators > li {
+    background-color: #fff;
+    margin: 0 5px;
+    width: 20px!important;
+    border-radius: 50px!important;
+    display: inline-block;
+}
+
+.carousel-indicators > li:hover {
+    background-color: #fff;
+    opacity: 1;
+    width: 25px!important;
+    border-radius: 50px!important;
+    display: inline-block;
+}
+
+.hero-promo{
+    position: relative;
+    height: 480px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center center;
+} 
+
+.inner-content-hero{
+    position: absolute;
+    top: 75px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.inner-content-hero > button{
+    background-color: transparent;
+    color: #000;
+    border-radius: 5px;
+    border: 1px solid #000;
+}
