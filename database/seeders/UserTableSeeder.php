@@ -31,6 +31,17 @@ class UserTableSeeder extends Seeder
             // Customer
 
             array(
+                'full_name' => 'Aradhana Vendor',
+                'username' => 'Vendor',
+                'email' => 'vendor@gmail.com',
+                'password' => Hash::make('111'),
+                'role' => 'vendor',
+                'status' => 'active'
+            ),
+
+            // Customer
+
+            array(
                 'full_name' => 'Aradhana Customer',
                 'username' => 'Customer',
                 'email' => 'customer@gmail.com',
