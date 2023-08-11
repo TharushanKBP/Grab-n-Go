@@ -73,7 +73,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $user = User::findOrFail($id);
-        return view('backend.users.edit')->with('user', $user);
+        return view('backend.user.edit')->with('user', $user);
     }
 
     /**
@@ -81,7 +81,7 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**
