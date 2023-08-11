@@ -50,7 +50,7 @@
 
                             <div class="form-group">
                                 <label for="">Phone</label>
-                                <input type="password" name="phone" placeholder="Phone" value="{{old('phone')}}" class="form-control">
+                                <input type="text" name="phone" placeholder="Phone" value="{{old('phone')}}" class="form-control">
                                 @error('phone')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror

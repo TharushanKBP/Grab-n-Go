@@ -66,14 +66,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="">Password</label>
-                                <input type="password" name="password" placeholder="Password" value="{{$user->password}}" class="form-control">
-                                @error('password')
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
                                 <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-btn">
@@ -81,17 +73,17 @@
                                             <i class="fa fa-picture-o"></i> Choose
                                         </a>
                                     </span>
-                                    <input id="thumbnail" class="form-control" type="text" name="photo" value="{{$user->photo}}">
+                                    <input id="thumbnail" class="form-control" style="margin-top:15px;max-height:10px" type=" text" name="photo" value="{{$user->photo}}">
                                 </div>
-                                <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+                                <!-- <div id="holder" style="margin-top:15px;max-height:10px;"></div> -->
                                 @error('photo')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
 
                             <div class="form-group">
-                                <label for="condition" class="col-form-label">Role <span class="text-danger">*</span></label>
-                                <select name="condition" class="form-control">
+                                <label for="role" class="col-form-label">Role <span class="text-danger">*</span></label>
+                                <select name="role" class="form-control">
                                     <option value="admin" {{(($user->role=='admin') ? 'selected' : '')}}>Admin</option>
                                     <option value="vendor" {{(($user->role=='vendor') ? 'selected' : '')}}>Vendor</option>
                                     <option value="customer" {{(($user->role=='customer') ? 'selected' : '')}}>Customer</option>

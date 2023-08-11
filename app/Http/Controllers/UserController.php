@@ -41,7 +41,7 @@ class UserController extends Controller
                 'phone' => 'string|nullable',
                 'photo' => 'required',
                 'address' => 'string|nullable',
-                'role' => 'required|in:admin,user',
+                'role' => 'required|in:admin,vendor,customer',
                 'status' => 'required|in:active,inactive',
             ]
         );
@@ -81,7 +81,31 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
+        $user = User::findOrFail($id);
+        $this->validate(
+            $request,
+            [
+                'full_name' => 'string|required',
+                'username' => 'string|nullable',
+                'email' => 'email|required|exists:users,email',
+                'phone' => 'string|nullable',
+                'photo' => 'required',
+                'address' => 'string|nullable',
+                'role' => 'required|in:admin,vendor,customer',
+                'status' => 'required|in:active,inactive',
+            ]
+        );
+        // dd($request->all());
+        $data = $request->all();
+        // dd($data);
+
+        $status = $user->fill($data)->save();
+        if ($status) {
+            request()->session()->flash('success', 'Successfully updated');
+        } else {
+            request()->session()->flash('error', 'Error occured while updating');
+        }
+        return redirect()->route('user.index');
     }
 
     /**
@@ -89,6 +113,13 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $delete = User::findorFail($id);
+        $status = $delete->delete();
+        if ($status) {
+            request()->session()->flash('success', 'User Successfully deleted');
+        } else {
+            request()->session()->flash('error', 'There is an error while deleting users');
+        }
+        return redirect()->route('user.index');
     }
 }
