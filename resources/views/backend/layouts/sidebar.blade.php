@@ -70,6 +70,14 @@
                                 <li><a href="{{route('brand.create')}}">Add Brand</a></li>
                             </ul>
                         </li>
+
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>Shipping Managment</span> </a>
+                            <ul>
+                                <li><a href="{{route('shipping.index')}}">All Shipping</a></li>
+                                <li><a href="{{route('shipping.create')}}">Add Shipping</a></li>
+                            </ul>
+                        </li>
+
                         <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>User Managment</span> </a>
                             <ul>
                                 <li><a href="{{route('user.index')}}">All User</a></li>

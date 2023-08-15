@@ -41,6 +41,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('/product', \App\Http\Controllers\ProductController::class);
     Route::post('/product_status', [\App\Http\Controllers\ProductController::class, 'productStatus'])->name('product.status');
 
+    // Shipping
+    Route::resource('/shipping', \App\Http\Controllers\ShippingController::class);
+    Route::post('/shipping_status', [\App\Http\Controllers\ShippingController::class, 'shippingStatus'])->name('shipping.status');
+
     // User
     Route::resource('/user', \App\Http\Controllers\UserController::class);
     Route::post('/user_status', [\App\Http\Controllers\UserController::class, 'userStatus'])->name('user.status');
