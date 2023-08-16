@@ -38,7 +38,6 @@ class ProductController extends Controller
     {
         $this->validate($request, [
             'title' => 'string|required',
-            'summary' => 'string|required',
             'description' => 'string|nullable',
             'photo' => 'string|required',
             'stock' => "required|numeric",
@@ -46,9 +45,11 @@ class ProductController extends Controller
             'brand_id' => 'nullable|exists:brands,id',
             'child_cat_id' => 'nullable|exists:categories,id',
             'is_featured' => 'sometimes|in:1',
+            'all_backorders' => 'required|in:Do_not_allow,Allow_but_notify_customer,allow',
             'status' => 'required|in:active,inactive',
-            'condition' => 'required|in:default,new,hot',
-            'price' => 'required|numeric',
+            'regular_price' => 'required|numeric',
+            'membership_price' => 'required|numeric',
+            'day' => "required|date",
             'discount' => 'nullable|numeric'
         ]);
 
@@ -108,7 +109,6 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $this->validate($request, [
             'title' => 'string|required',
-            'summary' => 'string|required',
             'description' => 'string|nullable',
             'photo' => 'string|required',
             'stock' => "required|numeric",
@@ -117,7 +117,6 @@ class ProductController extends Controller
             'is_featured' => 'sometimes|in:1',
             'brand_id' => 'nullable|exists:brands,id',
             'status' => 'required|in:active,inactive',
-            'condition' => 'required|in:default,new,hot',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric'
         ]);
