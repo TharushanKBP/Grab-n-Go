@@ -1,5 +1,5 @@
-<link href="./assests/css/product-slider.css" rel="stylesheet">
-<script src="./assests/js/product-slider.js"></script>
+<link href="{{asset('frontend/assests/css/product-slider.css')}}" rel="stylesheet">
+<script src="{{asset('frontend/assests/js/product-slider.js')}}"></script>
 
 <div class="product-slider-main">
     <div class="container">
@@ -32,42 +32,42 @@
 
                     <!--First Slide-->
                     <div class="ps-single-slide">
-                        <?php include('product-loop-item.php'); ?>
+                        @include('frontend.pages.product-loop-item');
                     </div>
 
                     <!--Second Slide-->
                     <div class="ps-single-slide">
-                        <?php include('product-loop-item.php'); ?>
+                        @include('frontend.pages.product-loop-item');
                     </div>
 
                     <!--Third Slide-->
                     <div class="ps-single-slide">
-                        <?php include('product-loop-item.php'); ?>
+                        @include('frontend.pages.product-loop-item');
                     </div>
 
                     <!--Fourth Slide-->
                     <div class="ps-single-slide">
-                        <?php include('product-loop-item.php'); ?>
+                        @include('frontend.pages.product-loop-item');
                     </div>
 
                     <!--Fifth Slide-->
                     <div class="ps-single-slide">
-                        <?php include('product-loop-item.php'); ?>
+                        @include('frontend.pages.product-loop-item');
                     </div>
 
                     <!--Sixth Slide-->
                     <div class="ps-single-slide">
-                        <?php include('product-loop-item.php'); ?>
+                        @include('frontend.pages.product-loop-item');
                     </div>
 
                     <!--Seventh Slide-->
                     <div class="ps-single-slide">
-                        <?php include('product-loop-item.php'); ?>
+                        @include('frontend.pages.product-loop-item');
                     </div>
 
                     <!--Eighth Slide-->
                     <div class="ps-single-slide">
-                        <?php include('product-loop-item.php'); ?>
+                        @include('frontend.pages.product-loop-item');
                     </div>
 
                 </div>

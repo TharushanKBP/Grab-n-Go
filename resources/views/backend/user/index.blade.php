@@ -31,7 +31,6 @@
                                     <tr>
                                         <th>S.N.</th>
                                         <th>Photo</th>
-                                        <!-- <th>Full name</th> -->
                                         <th>Username</th>
                                         <th>Email</th>
                                         <th>Role</th>
@@ -44,11 +43,14 @@
                                     <tr>
                                         <td>{{$user->id}}</td>
                                         <td>
-                                            <img src="{{$user->photo}}" class="img-fluid rounded-circle" style="border-radius:50%" alt="{{$user->photo}}">
-
+                                            @if($user->photo)
+                                            <img src="{{$user->photo}}" class="img-fluid zoom" style="border-radius: 10px; max-width:60px; max-height: 60px;" alt="{{$user->photo}}">
+                                            @else
+                                            <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid zoom" style="max-width:100%" alt="avatar.png">
+                                            @endif
                                         </td>
                                         <!-- <td>{{$user->full_name}}</td> -->
-                                        <td>{{$user->username}}</td>
+                                        <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->role}}</td>
                                         <td>

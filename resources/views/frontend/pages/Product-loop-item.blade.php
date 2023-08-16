@@ -1,7 +1,7 @@
-<link href="./assests/css/product-loop-item.css" rel="stylesheet">
+<link href="{{asset('frontend/assests/css/product-loop-item.css')}}" rel="stylesheet">
 
 <div class="loop-wrapper">
-    <div class="product-image" style="background-image: url('./assests/images/asus-rog-laptop.png');">
+    <div class="product-image" style="background-image: url('frontend/assests/images/asus-rog-laptop.png');">
         <span class="product-discount">25% off</span>
         <a href="#" class="add-to-wishlist"><i class="fa-regular fa-heart"></i></a>
     </div>

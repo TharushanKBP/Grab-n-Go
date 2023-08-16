@@ -14,11 +14,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Frontend section
+Route::get('/', [\App\Http\Controllers\Frontend\IndexController::class, 'home'])->name('home');
 
-//search product
 
 
 Auth::routes(['register' => false]);

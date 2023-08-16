@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+@include('frontend.layouts.header')
 
 <main>
     <div class="main-content">
@@ -9,7 +9,7 @@
                         <div class="carousel-inner">
 
                             <!-- Slide 1 -->
-                            <div class="carousel-item active slide-item" style="background-image: url('./assests/images/gng-slide-1.png');">
+                            <div class="carousel-item active slide-item" style="background-image: url('frontend/assests/images/gng-slide-1.png');">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-6 col-lg-4 slide-content">
@@ -24,7 +24,7 @@
                             </div>
 
                             <!-- Slide 2 (Add more slides as needed) -->
-                            <div class="carousel-item slide-item" style="background-image: url('./assests/images/gng-slide-2.png');">
+                            <div class="carousel-item slide-item" style="background-image: url('frontend/assests/images/gng-slide-2.png');">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-6 col-lg-4 slide-content">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="flex2">
-                    <div class="hero-promo" style="background-image: url('./assests/images/hero-image.png');">
+                    <div class="hero-promo" style="background-image: url('frontend/assests/images/hero-image.png');">
                         <div class="inner-content-hero">
                             <span>Big Sale</span>
                             <h2>Asus ROG Laptop</h2>
@@ -61,10 +61,10 @@
         </div>
     </div>
 
-    <?php include('category-slider.php'); ?>
-    <?php include('product-slider.php'); ?>
-    <?php include('hot-offers.php'); ?>
+    @include('frontend.pages.category-slider');
+    @include('frontend.pages.product-slider');
+    @include('frontend.pages.hot-offers');
 
 </main>
 
-<?php include('footer.php'); ?>
+@include('frontend.layouts.footer');

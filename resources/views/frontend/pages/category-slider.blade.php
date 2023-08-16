@@ -1,5 +1,5 @@
-<link href="./assests/css/category-slider.css" rel="stylesheet">
-<script src="./assests/js/category-slider.js"></script>
+<link href="{{asset('frontend/assests/css/category-slider.css')}}" rel="stylesheet">
+<script src="{{asset('frontend/assests/js/category-slider.js')}}"></script>
 
 <div class="category-slider-main">
     <div class="container">

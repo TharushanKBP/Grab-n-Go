@@ -4,9 +4,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-    <link href="./assests/css/header-style.css" rel="stylesheet">
-    <link href="./assests/css/style.css" rel="stylesheet">
-    <link href="./assests/css/index.css" rel="stylesheet">
+    <link href="{{asset('frontend/assests/css/header-style.css')}}" rel="stylesheet">
+    <link href="{{asset('frontend/assests/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('frontend/assests/css/index.css')}}" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-2" style="width: 20%;">
                     <!-- Site Logo -->
-                    <img src="./assests/images/site-logo.png" alt="Logo" class="site-logo">
+                    <img src="{{asset('frontend/assests/images/site-logo.png')}}" alt="Logo" class="site-logo">
                 </div>
                 <div class="col-4" style="width: 45%;">
                     <!-- Search Box -->

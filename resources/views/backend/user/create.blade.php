@@ -70,7 +70,7 @@
                             <div class="form-group">
                                 <label for="role" class="col-form-label">Role</label>
                                 <select name="role" class="form-control">
-                                    <option value="">-----Select Role-----</option>
+                                    <option value="">-- Select Role --</option>
                                     @foreach($roles as $role)
                                     <option value="{{$role->role}}">{{$role->role}}</option>
                                     @endforeach
@@ -82,6 +82,7 @@
                             <div class="form-group">
                                 <label for="status" class="col-form-label">Status</label>
                                 <select name="status" class="form-control">
+                                    <option value="">-- Status --</option>
                                     <option value="active">Active</option>
                                     <option value="inactive">Inactive</option>
                                 </select>
