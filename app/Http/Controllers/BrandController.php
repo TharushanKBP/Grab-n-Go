@@ -58,6 +58,31 @@ class BrandController extends Controller
         //
     }
 
+    public function autoSearch(Request $request)
+    {
+        $query = $request->get('term', '');
+        $brand = Brand::where('title', 'LIKE', '%' . $query . '%')->get();
+
+        $data = array();
+        foreach ($brand as $brand) {
+            $data[] = array('value' => $brand->title, 'id' => $brand->id);
+        }
+        if (count($data)) {
+            return $data;
+        } else {
+            return ['value' => "No Result Found", 'id' => ''];
+        }
+    }
+
+    //search brand
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $brand = Brand::where('title', 'LIKE', '%' . $query . '%')->orderBy('id', 'DESC')->paginate(12);
+        return view('backend.brand.index', compact('brand'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

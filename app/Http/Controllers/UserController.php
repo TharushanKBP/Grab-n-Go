@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::orderBy('id', 'DESC')->paginate(10);
+        $user = User::orderBy('id', 'ASC')->paginate(10);
         return view('backend.user.index')->with('user', $user);
     }
 
@@ -34,15 +34,12 @@ class UserController extends Controller
         $this->validate(
             $request,
             [
-                'full_name' => 'string|required',
-                'username' => 'string|nullable',
-                'email' => 'email|required|unique:users,email',
-                'password' => 'main:4|required',
-                'phone' => 'string|nullable',
-                'photo' => 'required',
-                'address' => 'string|nullable',
-                'role' => 'required|in:admin,vendor,customer',
+                'name' => 'string|required|max:30',
+                'email' => 'string|required|unique:users',
+                'password' => 'string|required',
+                'role' => 'required|in:admin,user',
                 'status' => 'required|in:active,inactive',
+                'photo' => 'nullable|string',
             ]
         );
         // dd($request->all());
@@ -85,14 +82,11 @@ class UserController extends Controller
         $this->validate(
             $request,
             [
-                'full_name' => 'string|required',
-                'username' => 'string|nullable',
-                'email' => 'email|required|exists:users,email',
-                'phone' => 'string|nullable',
-                'photo' => 'required',
-                'address' => 'string|nullable',
-                'role' => 'required|in:admin,vendor,customer',
+                'name' => 'string|required|max:30',
+                'email' => 'string|required',
+                'role' => 'required|in:admin,user',
                 'status' => 'required|in:active,inactive',
+                'photo' => 'nullable|string',
             ]
         );
         // dd($request->all());

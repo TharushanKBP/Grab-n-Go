@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//search product
+
+
 Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -32,6 +35,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     // Brand
     Route::resource('/brand', \App\Http\Controllers\BrandController::class);
     Route::post('/brand_status', [\App\Http\Controllers\BrandController::class, 'brandStatus'])->name('brand.status');
+
+    // search brand system
+    Route::get('autosearch', [\App\Http\Controllers\BrandController::class, 'autoSearch'])->name('autosearch');
+    Route::get('search', [\App\Http\Controllers\BrandController::class, 'search'])->name('search');
+
 
     // Category
     Route::resource('/category', \App\Http\Controllers\CategoryController::class);

@@ -17,63 +17,40 @@
 
             </div>
         </div>
-
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card">
                     <div class="body">
                         <form method="post" action="{{route('user.store')}}">
                             {{csrf_field()}}
+
+
                             <div class="form-group">
-                                <label for="">Full Name <span class="text-danger">*</span></label>
-                                <input type="text" name="full_name" placeholder="Full name" value="{{old('full_name')}}" class="form-control">
-                                @error('full_name')
+                                <label for="inputTitle" class="col-form-label">Name</label>
+                                <input id="inputTitle" type="text" name="name" placeholder="Enter name" value="{{old('name')}}" class="form-control">
+                                @error('name')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
 
                             <div class="form-group">
-                                <label for="">Username</label>
-                                <input type="text" name="username" placeholder="Username" value="{{old('Username')}}" class="form-control">
-                                @error('Username')
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label for="">Email</label>
-                                <input type="email" name="email" placeholder="Email Address" value="{{old('email')}}" class="form-control">
+                                <label for="inputEmail" class="col-form-label">Email</label>
+                                <input id="inputEmail" type="email" name="email" placeholder="Enter email" value="{{old('email')}}" class="form-control">
                                 @error('email')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
 
                             <div class="form-group">
-                                <label for="">Phone</label>
-                                <input type="text" name="phone" placeholder="Phone" value="{{old('phone')}}" class="form-control">
-                                @error('phone')
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label for="">Address</label>
-                                <input type="text" name="address" placeholder="Address" value="{{old('address')}}" class="form-control">
-                                @error('address')
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label for="">Password</label>
-                                <input type="password" name="password" placeholder="Password" value="{{old('password')}}" class="form-control">
+                                <label for="inputPassword" class="col-form-label">Password</label>
+                                <input id="inputPassword" type="password" name="password" placeholder="Enter password" value="{{old('password')}}" class="form-control">
                                 @error('password')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
 
                             <div class="form-group">
-                                <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
+                                <label for="inputPhoto" class="col-form-label">Photo</label>
                                 <div class="input-group">
                                     <span class="input-group-btn">
                                         <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
@@ -82,29 +59,29 @@
                                     </span>
                                     <input id="thumbnail" class="form-control" type="text" name="photo" value="{{old('photo')}}">
                                 </div>
-                                <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+                                <img id="holder" style="margin-top:15px;max-height:100px;">
                                 @error('photo')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
-
+                            @php
+                            $roles=DB::table('users')->select('role')->get();
+                            @endphp
                             <div class="form-group">
-                                <label for="condition" class="col-form-label">Role <span class="text-danger">*</span></label>
-                                <select name="condition" class="form-control">
-                                    <option value="active">-- Role --</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="vendor">Vendor</option>
-                                    <option value="customer">Customer</option>
+                                <label for="role" class="col-form-label">Role</label>
+                                <select name="role" class="form-control">
+                                    <option value="">-----Select Role-----</option>
+                                    @foreach($roles as $role)
+                                    <option value="{{$role->role}}">{{$role->role}}</option>
+                                    @endforeach
                                 </select>
                                 @error('role')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
-
                             <div class="form-group">
-                                <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+                                <label for="status" class="col-form-label">Status</label>
                                 <select name="status" class="form-control">
-                                    <option value="active">-- Status --</option>
                                     <option value="active">Active</option>
                                     <option value="inactive">Inactive</option>
                                 </select>
@@ -112,34 +89,35 @@
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
-                            <br>
                             <div class="form-group mb-3">
                                 <button class="btn btn-success" type="submit">Submit</button>
                                 <button type="reset" class="btn btn-warning">Reset</button>
-
                             </div>
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
 
-                @endsection
+@section('scripts')
 
-                @section('scripts')
+<script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
 
-                <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+<script>
+    $('#lfm').filemanager('image');
+</script>
 
-                <script>
-                    $('#lfm').filemanager('image');
-                </script>
+<script>
+    $(document).ready(function() {
+        $('#description').summernote({
+            placeholder: "Write short description.....",
+            tabsize: 2,
+            height: 150
+        });
+    });
+</script>
 
-                <script>
-                    $(document).ready(function() {
-                        $('#description').summernote({
-                            placeholder: "Write short description.....",
-                            tabsize: 2,
-                            height: 150
-                        });
-                    });
-                </script>
-
-                @endsection
+@endsection

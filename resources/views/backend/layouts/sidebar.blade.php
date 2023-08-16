@@ -85,6 +85,13 @@
                             </ul>
                         </li>
 
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>User Managment</span> </a>
+                            <ul>
+                                <li><a href="{{route('user.index')}}">All User</a></li>
+                                <li><a href="{{route('user.create')}}">Add User</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </nav>
             </div>

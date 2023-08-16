@@ -17,36 +17,18 @@ class UserTableSeeder extends Seeder
 
         $data = array(
 
-            // Admin
-
             array(
-                'full_name' => 'Aradhana Admin',
-                'username' => 'Admin',
+                'name' => 'Admin',
                 'email' => 'admin@gmail.com',
-                'password' => Hash::make('11111'),
+                'password' => Hash::make('1111'),
                 'role' => 'admin',
                 'status' => 'active'
             ),
-
-            // Customer
-
             array(
-                'full_name' => 'Aradhana Vendor',
-                'username' => 'Vendor',
-                'email' => 'vendor@gmail.com',
-                'password' => Hash::make('111'),
-                'role' => 'vendor',
-                'status' => 'active'
-            ),
-
-            // Customer
-
-            array(
-                'full_name' => 'Aradhana Customer',
-                'username' => 'Customer',
-                'email' => 'customer@gmail.com',
-                'password' => Hash::make('111'),
-                'role' => 'customer',
+                'name' => 'User',
+                'email' => 'user@gmail.com',
+                'password' => Hash::make('1111'),
+                'role' => 'user',
                 'status' => 'active'
             ),
         );

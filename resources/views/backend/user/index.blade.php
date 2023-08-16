@@ -31,7 +31,8 @@
                                     <tr>
                                         <th>S.N.</th>
                                         <th>Photo</th>
-                                        <th>Full name</th>
+                                        <!-- <th>Full name</th> -->
+                                        <th>Username</th>
                                         <th>Email</th>
                                         <th>Role</th>
                                         <th>Status</th>
@@ -46,7 +47,8 @@
                                             <img src="{{$user->photo}}" class="img-fluid rounded-circle" style="border-radius:50%" alt="{{$user->photo}}">
 
                                         </td>
-                                        <td>{{$user->full_name}}</td>
+                                        <!-- <td>{{$user->full_name}}</td> -->
+                                        <td>{{$user->username}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->role}}</td>
                                         <td>
