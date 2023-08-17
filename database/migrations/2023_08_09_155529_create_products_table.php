@@ -22,7 +22,7 @@ return new class extends Migration
             $table->enum('status', ['active', 'inactive'])->default('inactive');
             $table->float('regular_price');
             $table->float('membership_price');
-            $table->date('day');
+            $table->float('day')->nullabale();
             $table->float('discount')->nullabale();
             $table->boolean('is_featured')->deault(false);
             $table->unsignedBigInteger('cat_id')->nullable();

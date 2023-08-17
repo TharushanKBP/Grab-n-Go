@@ -49,7 +49,7 @@ class ProductController extends Controller
             'status' => 'required|in:active,inactive',
             'regular_price' => 'required|numeric',
             'membership_price' => 'required|numeric',
-            'day' => "required|date",
+            'day' => "required|numeric",
             'discount' => 'nullable|numeric'
         ]);
 
@@ -143,7 +143,7 @@ class ProductController extends Controller
             'status' => 'required|in:active,inactive',
             'regular_price' => 'required|numeric',
             'membership_price' => 'required|numeric',
-            'day' => "required|date",
+            'day' => "required|numeric",
             'discount' => 'nullable|numeric'
         ]);
 

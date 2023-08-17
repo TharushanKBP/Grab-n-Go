@@ -61,7 +61,7 @@
                             <h6>Product Image</h6><br>
 
                             <div class="form-group">
-                                <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
+                                <label for="inputPhoto" class="col-form-label">Photo</label>
                                 <div class="input-group">
                                     <span class="input-group-btn">
                                         <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
@@ -71,11 +71,11 @@
                                     <input id="thumbnail" class="form-control" type="text" name="photo" value="{{old('photo')}}">
                                 </div>
                                 <div id="holder" style="margin-top:15px;max-height:100px;"></div>
+
                                 @error('photo')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                                     <ul class="main-menu metismenu">
 
                                         <div class="form-group">
-                                            <label for="regular_price" class="col-form-label">Regular price <span class="text-danger">*</span></label>
+                                            <label for="regular_price" class="col-form-label">Regular price</label>
                                             <input type="number" name="regular_price" placeholder="Enter Regular Price" value="{{old('regular_price')}}" class="form-control">
                                             @error('regular_price')
                                             <span class="text-danger">{{$message}}</span>
@@ -106,7 +106,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="membership_price" class="col-form-label">Membership price <span class="text-danger">*</span></label>
+                                            <label for="membership_price" class="col-form-label">Membership price</label>
                                             <input type="number" name="membership_price" placeholder="Enter Membership Price" value="{{old('membership_price')}}" class="form-control">
                                             @error('membership_price')
                                             <span class="text-danger">{{$message}}</span>
@@ -118,10 +118,9 @@
                                             <!-- <input type="number" name="day" min="0" placeholder="Enter days" value="{{old('day')}}" class="form-control"> -->
 
                                             <form action="/action_page.php">
-                                                <label for="day">Days</label>
-                                                <input type="date" id="day" name="day" class="form-control">
+                                                <label for="day">Membership Time</label>
+                                                <input id="day" type="number" name="day" min="0" max="12" placeholder="Enter Months" value="{{old('day')}}" class="form-control">
                                             </form>
-
                                             @error('day')
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror
@@ -535,18 +534,10 @@
     $('#lfm').filemanager('image');
 
     $(document).ready(function() {
-        $('#summary').summernote({
+        $('#description').summernote({
             placeholder: "Write short description.....",
             tabsize: 2,
-            height: 100
-        });
-    });
-
-    $(document).ready(function() {
-        $('#description').summernote({
-            placeholder: "Write detail description.....",
-            tabsize: 2,
-            height: 150
+            height: 120
         });
     });
 </script>

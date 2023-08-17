@@ -50,8 +50,7 @@
                             <h6>Product brand</h6><br>
                             <div class="form-group">
                                 <label for="brand_id">Brand</label>
-                                <select name="brand_id" class="form-control">
-                                    <option value="">--Select Brand--</option>
+                                <select name="brand_id" class="form-control" multiple>
                                     @foreach($brand as $brand)
                                     <option value="{{$brand->id}}" {{(($product->brand_id==$brand->id)? 'selected':'')}}>{{$brand->title}}</option>
                                     @endforeach
@@ -119,8 +118,8 @@
                                             <!-- <input type="number" name="day" min="0" placeholder="Enter days" value="{{old('day')}}" class="form-control"> -->
 
                                             <form action="/action_page.php">
-                                                <label for="day">Days</label>
-                                                <input type="date" id="day" name="day" value="{{$product->day}}" class="form-control">
+                                                <label for="day">Membership Time</label>
+                                                <input type="number" id="day" name="day" min="0" max="12" value="{{$product->day}}" class="form-control">
                                             </form>
                                             @error('day')
                                             <span class="text-danger">{{$message}}</span>
@@ -243,9 +242,8 @@
                             {{-- {{$category}} --}}
 
                             <div class="form-group">
-                                <label for="cat_id">Category <span class="text-danger">*</span></label>
-                                <select name="cat_id" id="cat_id" class="form-control">
-                                    <option value="">--Select any category--</option>
+                                <label for="cat_id">Category</label>
+                                <select name="cat_id" id="cat_id" class="form-control" multiple>
                                     @foreach($category as $key=>$cat_data)
                                     <option value='{{$cat_data->id}}' {{(($product->cat_id==$cat_data->id)? 'selected' : '')}}>{{$cat_data->title}}</option>
                                     @endforeach
