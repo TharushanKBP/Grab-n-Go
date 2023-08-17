@@ -9,7 +9,7 @@
                 <div class="col-lg-6 col-md-8 col-sm-12">
                     <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Product</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="icon-home"></i></a></li>
                         <li class="breadcrumb-item active">Product List</li>
                     </ul>
                 </div>
@@ -22,6 +22,11 @@
                     <div class="header">
                         <a href="{{route('product.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Product</a>
                     </div>
+                    <br><br>
+                    <form class="float-right" action="{{route('search')}}" method="GET" style="margin:auto;max-width:300px">
+                        <input type="text" id="search_text" name="query" placeholder="Search" name="search2">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
                     <br>
                     <div class="body">
                         <div class="table-responsive">
@@ -34,7 +39,6 @@
                                         <th>Brand</th>
                                         <th>Category</th>
                                         <th>Photo</th>
-                                        <th>Is Featured</th>
                                         <th>Reguler Price</th>
                                         <th>Member Price</th>
                                         <th>Discount</th>
@@ -71,7 +75,7 @@
                                             <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
                                             @endif
                                         </td>
-                                        <td>{{(($product->is_featured==1)? 'Yes': 'No')}}</td>
+
 
 
                                         <td>Rs. {{$product->regular_price}} /-</td>
@@ -110,68 +114,73 @@
                         </div>
                     </div>
                 </div>
-                @endsection
+            </div>
+        </div>
+    </div>
+</div>
 
-                @push('styles')
-                <link href="{{asset('backend/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
-                <style>
-                    div.dataTables_wrapper div.dataTables_paginate {
-                        display: none;
+@endsection
+
+@push('styles')
+<link href="{{asset('backend/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<style>
+    div.dataTables_wrapper div.dataTables_paginate {
+        display: none;
+    }
+</style>
+@endpush
+
+@push('scripts')
+
+<!-- Page level plugins -->
+<script src="{{asset('backend/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('backend/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
+<script>
+    $('#banner-dataTable').DataTable({
+        "columnDefs": [{
+            "orderable": false,
+            "targets": [3, 4, 5]
+        }]
+    });
+
+    // Sweet alert
+
+    function deleteData(id) {
+
+    }
+</script>
+<script>
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.dltBtn').click(function(e) {
+            var form = $(this).closest('form');
+            var dataID = $(this).data('id');
+            // alert(dataID);
+            e.preventDefault();
+            swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this data!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    } else {
+                        swal("Your data is safe!");
                     }
-                </style>
-                @endpush
-
-                @push('scripts')
-
-                <!-- Page level plugins -->
-                <script src="{{asset('backend/vendor/datatables/jquery.dataTables.min.js')}}"></script>
-                <script src="{{asset('backend/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-
-                <!-- Page level custom scripts -->
-                <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script>
-                <script>
-                    $('#banner-dataTable').DataTable({
-                        "columnDefs": [{
-                            "orderable": false,
-                            "targets": [3, 4, 5]
-                        }]
-                    });
-
-                    // Sweet alert
-
-                    function deleteData(id) {
-
-                    }
-                </script>
-                <script>
-                    $(document).ready(function() {
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            }
-                        });
-                        $('.dltBtn').click(function(e) {
-                            var form = $(this).closest('form');
-                            var dataID = $(this).data('id');
-                            // alert(dataID);
-                            e.preventDefault();
-                            swal({
-                                    title: "Are you sure?",
-                                    text: "Once deleted, you will not be able to recover this data!",
-                                    icon: "warning",
-                                    buttons: true,
-                                    dangerMode: true,
-                                })
-                                .then((willDelete) => {
-                                    if (willDelete) {
-                                        form.submit();
-                                    } else {
-                                        swal("Your data is safe!");
-                                    }
-                                });
-                        })
-                    })
-                </script>
-                @endpush
+                });
+        })
+    })
+</script>
+@endpush

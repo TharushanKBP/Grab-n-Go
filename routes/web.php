@@ -34,9 +34,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::resource('/brand', \App\Http\Controllers\BrandController::class);
     Route::post('/brand_status', [\App\Http\Controllers\BrandController::class, 'brandStatus'])->name('brand.status');
 
-    // search brand system
-    Route::get('autosearch', [\App\Http\Controllers\BrandController::class, 'autoSearch'])->name('autosearch');
-    Route::get('search', [\App\Http\Controllers\BrandController::class, 'search'])->name('search');
+    // // search brand system
+    // Route::get('autosearch', [\App\Http\Controllers\BrandController::class, 'autoSearch'])->name('autosearch');
+    // Route::get('search', [\App\Http\Controllers\BrandController::class, 'search'])->name('search');
 
 
     // Category
@@ -46,6 +46,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     // Product
     Route::resource('/product', \App\Http\Controllers\ProductController::class);
     Route::post('/product_status', [\App\Http\Controllers\ProductController::class, 'productStatus'])->name('product.status');
+
+    // search Product system
+    Route::get('autosearch', [\App\Http\Controllers\ProductController::class, 'autoSearch'])->name('autosearch');
+    Route::get('search', [\App\Http\Controllers\ProductController::class, 'search'])->name('search');
 
     // Shipping
     Route::resource('/shipping', \App\Http\Controllers\ShippingController::class);

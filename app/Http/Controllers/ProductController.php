@@ -101,6 +101,29 @@ class ProductController extends Controller
             ->with('category', $category)->with('item', $item);
     }
 
+    public function autoSearch(Request $request)
+    {
+        $query = $request->get('term', '');
+        $product = Product::where('title', 'LIKE', '%' . $query . '%')->get();
+
+        $data = array();
+        foreach ($product as $product) {
+            $data[] = array('value' => $product->title, 'id' => $product->id);
+        }
+        if (count($data)) {
+            return $data;
+        } else {
+            return ['value' => "No Result Found", 'id' => ''];
+        }
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $product = Product::where('title', 'LIKE', '%' . $query . '%')->orderBy('id', 'DESC')->paginate(12);
+        return view('backend.product.index', compact('product'));
+    }
+
     /**
      * Update the specified resource in storage.
      */

@@ -9,7 +9,7 @@
                 <div class="col-lg-6 col-md-8 col-sm-12">
                     <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Brand</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="icon-home"></i></a></li>
                         <li class="breadcrumb-item active">Brand List</li>
                     </ul>
                 </div>
@@ -22,12 +22,12 @@
                     <div class="header">
                         <a href="{{route('brand.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Brand</a>
                     </div>
-                    <br><br>
-                    <form class="float-right" action="{{route('search')}}" method="GET" style="margin:auto;max-width:300px">
+
+                    <!-- <form class="float-right" action="{{route('search')}}" method="GET" style="margin:auto;max-width:300px">
                         <input type="text" id="search_text" name="query" placeholder="Search.." name="search2">
                         <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                    <br>
+                    </form> -->
+
                     <div class="body">
                         <div class="table-responsive">
 

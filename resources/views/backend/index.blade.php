@@ -9,7 +9,7 @@
                 <div class="col-lg-5 col-md-8 col-sm-12">
                     <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Dashboard</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="icon-home"></i></a></li>
                         <li class="breadcrumb-item active">eCommerce</li>
                     </ul>
                 </div>
@@ -21,8 +21,8 @@
             <div class="col-lg-3 col-md-6">
                 <div class="card overflowhidden">
                     <div class="body">
-                        <h3>109 <i class="icon-basket-loaded float-right"></i></h3>
-                        <span>Products Sold</span>
+                        <h3>{{\App\Models\Category::where('status','active')->count()}} <i class="icon-basket-loaded float-right"></i></h3>
+                        <span>Total Category</span>
                     </div>
                     <div class="progress progress-xs progress-transparent custom-color-blue m-b-0">
                         <div class="progress-bar" data-transitiongoal="64"></div>
@@ -32,8 +32,8 @@
             <div class="col-lg-3 col-md-6">
                 <div class="card overflowhidden">
                     <div class="body">
-                        <h3>235 <i class="icon-user-follow float-right"></i></h3>
-                        <span>New Customers</span>
+                        <h3>{{\App\Models\Product::where('status','active')->count()}} <i class="icon-user-follow float-right"></i></h3>
+                        <span>Total Product</span>
                     </div>
                     <div class="progress progress-xs progress-transparent custom-color-purple m-b-0">
                         <div class="progress-bar" data-transitiongoal="67"></div>
@@ -54,8 +54,8 @@
             <div class="col-lg-3 col-md-6">
                 <div class="card overflowhidden">
                     <div class="body">
-                        <h3>68% <i class=" icon-heart float-right"></i></h3>
-                        <span>Customer Satisfaction</span>
+                        <h3>{{\App\Models\Brand::where('status','active')->count()}} <i class=" icon-heart float-right"></i></h3>
+                        <span>Totle Brand</span>
                     </div>
                     <div class="progress progress-xs progress-transparent custom-color-green m-b-0">
                         <div class="progress-bar" data-transitiongoal="68"></div>

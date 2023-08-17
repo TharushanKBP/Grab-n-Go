@@ -6,7 +6,7 @@
                 <span>Welcome,</span>
                 <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Pro. William</strong></a>
                 <ul class="dropdown-menu dropdown-menu-right account">
-                    <li><a href="professors-profile.html"><i class="icon-user"></i>My Profile</a></li>
+                    <li><a href=""><i class="icon-user"></i>My Profile</a></li>
                     <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
                     <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
                     <li class="divider"></li>
@@ -14,20 +14,6 @@
                 </ul>
             </div>
             <hr>
-            <ul class="row list-unstyled">
-                <li class="col-4">
-                    <span>Exp</span>
-                    <h6>14</h6>
-                </li>
-                <li class="col-4">
-                    <span>Awards</span>
-                    <h6>13</h6>
-                </li>
-                <li class="col-4">
-                    <span>Clients</span>
-                    <h6>213</h6>
-                </li>
-            </ul>
         </div>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
@@ -85,9 +71,9 @@
                             </ul>
                         </li>
 
-                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>Setting</span> </a>
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>Settings</span> </a>
                             <ul>
-                                <li><a href="">Add Setting</a></li>
+                                <li><a href="">Add Settings</a></li>
                             </ul>
                         </li>
 
