@@ -218,6 +218,12 @@
             <div class="tab-pane p-l-15 p-r-15" id="setting">
                 <h6>Choose Skin</h6>
                 <ul class="choose-skin list-unstyled">
+
+                    <li data-theme="white">
+                        <div class="white"></div>
+                        <span>White</span>
+                    </li>
+
                     <li data-theme="purple">
                         <div class="purple"></div>
                         <span>Purple</span>
@@ -242,6 +248,7 @@
                         <div class="blush"></div>
                         <span>Blush</span>
                     </li>
+
                 </ul>
                 <hr>
                 <h6>General Settings</h6>

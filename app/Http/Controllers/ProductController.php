@@ -113,11 +113,14 @@ class ProductController extends Controller
             'photo' => 'string|required',
             'stock' => "required|numeric",
             'cat_id' => 'required|exists:categories,id',
+            'brand_id' => 'nullable|exists:brands,id',
             'child_cat_id' => 'nullable|exists:categories,id',
             'is_featured' => 'sometimes|in:1',
-            'brand_id' => 'nullable|exists:brands,id',
+            'all_backorders' => 'required|in:Do_not_allow,Allow_but_notify_customer,allow',
             'status' => 'required|in:active,inactive',
-            'price' => 'required|numeric',
+            'regular_price' => 'required|numeric',
+            'membership_price' => 'required|numeric',
+            'day' => "required|date",
             'discount' => 'nullable|numeric'
         ]);
 

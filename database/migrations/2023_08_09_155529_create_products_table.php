@@ -15,13 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->text('summary');
             $table->longText('description')->nullable();
             $table->text('photo');
             $table->integer('stock')->default(1);
-            $table->enum('condition', ['default', 'new', 'used'])->default('default');
+            $table->enum('all_backorders', ['Do_not_allow', 'Allow_but_notify_customer', 'allow'])->default('allow');
             $table->enum('status', ['active', 'inactive'])->default('inactive');
-            $table->float('price');
+            $table->float('regular_price');
+            $table->float('membership_price');
+            $table->date('day');
             $table->float('discount')->nullabale();
             $table->boolean('is_featured')->deault(false);
             $table->unsignedBigInteger('cat_id')->nullable();

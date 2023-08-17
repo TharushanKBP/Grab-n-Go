@@ -118,7 +118,7 @@
                                             <!-- <input type="number" name="day" min="0" placeholder="Enter days" value="{{old('day')}}" class="form-control"> -->
 
                                             <form action="/action_page.php">
-                                                <label for="day">Days <span class="text-danger">*</span></label>
+                                                <label for="day">Days</label>
                                                 <input type="date" id="day" name="day" class="form-control">
                                             </form>
 
@@ -143,7 +143,7 @@
 
                                     <ul class="main-menu metismenu">
                                         <div class="form-group">
-                                            <label for="stock">Quantity <span class="text-danger">*</span></label>
+                                            <label for="stock">Quantity</label>
                                             <input id="quantity" type="number" name="stock" min="0" placeholder="Enter quantity" value="{{old('stock')}}" class="form-control">
                                             @error('stock')
                                             <span class="text-danger">{{$message}}</span>
