@@ -31,13 +31,13 @@
                                     <tr>
                                         <th>S.N.</th>
                                         <th>Title</th>
+                                        <th>Brand</th>
                                         <th>Category</th>
                                         <th>Photo</th>
                                         <th>Is Featured</th>
-                                        <th>Price</th>
+                                        <th>Reguler Price</th>
+                                        <th>Member Price</th>
                                         <th>Discount</th>
-                                        <th>Condition</th>
-                                        <th>Brand</th>
                                         <th>Stock</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -54,12 +54,12 @@
                                     <tr>
                                         <td>{{$product->id}}</td>
                                         <td>{{$product->title}}</td>
+                                        <td> {{ucfirst($product->brand->title)}}</td>
                                         <td>{{$product->cat_info['title']}}
                                             <sub>
                                                 {{$product->sub_cat_info->title ?? ''}}
                                             </sub>
                                         </td>
-
                                         <td>
                                             @if($product->photo)
                                             @php
@@ -71,13 +71,14 @@
                                             <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
                                             @endif
                                         </td>
-
                                         <td>{{(($product->is_featured==1)? 'Yes': 'No')}}</td>
-                                        <td>Rs. {{$product->price}} /-</td>
-                                        <td> {{$product->discount}}% OFF</td>
-                                        <td>{{$product->condition}}</td>
 
-                                        <td> {{ucfirst($product->brand->title)}}</td>
+
+                                        <td>Rs. {{$product->regular_price}} /-</td>
+                                        <td>Rs. {{$product->membership_price}} /-</td>
+                                        <td> {{$product->discount}}% OFF</td>
+
+
                                         <td>
                                             @if($product->stock>0)
                                             <span class="badge badge-primary">{{$product->stock}}</span>
