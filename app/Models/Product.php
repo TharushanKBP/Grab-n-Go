@@ -11,7 +11,7 @@ class Product extends Model
         'title',
         'slug',
         'description',
-        'is_featured',
+        // 'is_featured',
         'cat_id',
         'child_cat_id',
         'regular_price',

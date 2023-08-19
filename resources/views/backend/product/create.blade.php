@@ -234,10 +234,6 @@
                     <div class="card overflowhidden">
                         <div class="body">
                             <h6>Product category</h6><br>
-                            <div class="form-group">
-                                <label for="is_featured">Is Featured</label>
-                                <input type="checkbox" name='is_featured' id='is_featured' value='1' checked> Yes
-                            </div>
 
                             {{-- {{$category}} --}}
 

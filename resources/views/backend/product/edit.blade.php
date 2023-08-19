@@ -235,10 +235,6 @@
                         <div class="body">
                             <h6>Product category</h6><br>
 
-                            <div class="form-group">
-                                <label for="is_featured">Is Featured</label><br>
-                                <input type="checkbox" name='is_featured' id='is_featured' value='{{$product->is_featured}}' {{(($product->is_featured) ? 'checked' : '')}}> Yes
-                            </div>
                             {{-- {{$category}} --}}
 
                             <div class="form-group">

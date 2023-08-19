@@ -17,6 +17,7 @@ class UserTableSeeder extends Seeder
 
         $data = array(
 
+            // Admin
             array(
                 'name' => 'Admin',
                 'email' => 'admin@gmail.com',
@@ -24,6 +25,16 @@ class UserTableSeeder extends Seeder
                 'role' => 'admin',
                 'status' => 'active'
             ),
+
+            // Seller
+            array(
+                'name' => 'Seller',
+                'email' => 'seller@gmail.com',
+                'password' => Hash::make('1111'),
+                'role' => 'seller',
+                'status' => 'active'
+            ),
+
             array(
                 'name' => 'User',
                 'email' => 'user@gmail.com',

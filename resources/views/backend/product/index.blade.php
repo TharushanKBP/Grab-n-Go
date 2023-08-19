@@ -28,6 +28,11 @@
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                     <br>
+
+                    <br>
+                    <div class="col-md-12">
+                        @include('backend.layouts.notification')
+                    </div>
                     <div class="body">
                         <div class="table-responsive">
 

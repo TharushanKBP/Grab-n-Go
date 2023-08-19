@@ -23,6 +23,9 @@
                         <a href="{{route('shipping.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add shipping</a>
                     </div>
                     <br>
+                    <div class="col-md-12">
+                        @include('backend.layouts.notification')
+                    </div>
                     <div class="body">
                         <div class="table-responsive">
 

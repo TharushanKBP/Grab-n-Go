@@ -22,6 +22,10 @@
                     <div class="header">
                         <a href="{{route('brand.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Brand</a>
                     </div>
+                    <br>
+                    <div class="col-md-12">
+                        @include('backend.layouts.notification')
+                    </div>
 
                     <!-- <form class="float-right" action="{{route('search')}}" method="GET" style="margin:auto;max-width:300px">
                         <input type="text" id="search_text" name="query" placeholder="Search.." name="search2">

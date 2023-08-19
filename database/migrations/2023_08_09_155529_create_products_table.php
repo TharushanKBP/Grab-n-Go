@@ -24,7 +24,7 @@ return new class extends Migration
             $table->float('membership_price');
             $table->float('day')->nullabale();
             $table->float('discount')->nullabale();
-            $table->boolean('is_featured')->deault(false);
+            // $table->boolean('is_featured')->deault(false);
             $table->unsignedBigInteger('cat_id')->nullable();
             $table->unsignedBigInteger('child_cat_id')->nullable();
             $table->unsignedBigInteger('brand_id')->nullable();
