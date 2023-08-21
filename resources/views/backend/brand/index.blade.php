@@ -40,7 +40,7 @@
                                     <tr>
                                         <th>S.N.</th>
                                         <th>Title</th>
-                                        <th>Status</th>
+                                        <!-- <th>Status</th> -->
                                         <th>Action</th>
                                     </tr>
                                 </thead>

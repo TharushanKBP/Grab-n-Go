@@ -12,4 +12,9 @@ class Brand extends Model
         'slug',
         'status'
     ];
+
+    // public function products()
+    // {
+    //     return $this->belongsToMany(Product::class);
+    // }
 }

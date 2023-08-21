@@ -53,6 +53,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     // Product
     Route::resource('/product', \App\Http\Controllers\ProductController::class);
     Route::post('/product_status', [\App\Http\Controllers\ProductController::class, 'productStatus'])->name('product.status');
+    // Route::post('/product/addcat', [\App\Http\Controllers\ProductController::class, 'addCat'])->name('product.addcat');
+
 
     // search Product system
     Route::get('autosearch', [\App\Http\Controllers\ProductController::class, 'autoSearch'])->name('autosearch');

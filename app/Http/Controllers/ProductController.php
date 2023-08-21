@@ -36,6 +36,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $product = new Product;
         $this->validate($request, [
             'title' => 'string|required',
             'description' => 'string|nullable',
@@ -180,4 +181,14 @@ class ProductController extends Controller
         }
         return redirect()->route('product.index');
     }
+
+    // public function addCat(Request $request)
+    // {
+
+    //     $brand = new Brand;
+    //     $brand->name = $request->input('title');
+    //     $brand->save();
+
+    //     return response()->json(Brand::all());
+    // }
 }

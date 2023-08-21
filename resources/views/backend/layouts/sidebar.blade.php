@@ -1,10 +1,10 @@
 <div id="left-sidebar" class="sidebar">
     <div class="sidebar-scroll">
         <div class="user-account">
-            <img src="{{asset('backend/assets/images/user.png')}}" class="rounded-circle user-photo" alt="User Profile Picture">
+            <img src="{{Auth()->user()->photo}}" class="rounded-circle user-photo" alt="User Profile Picture">
             <div class="dropdown">
                 <span>Welcome,</span>
-                <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Pro. William</strong></a>
+                <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>{{Auth()->user()->name}}</strong></a>
                 <ul class="dropdown-menu dropdown-menu-right account">
                     <li><a href="{{route('admin-profile')}}"><i class="icon-user"></i>My Profile</a></li>
                     <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
@@ -68,12 +68,6 @@
                             <ul>
                                 <li><a href="{{route('user.index')}}">All User</a></li>
                                 <li><a href="{{route('user.create')}}">Add User</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-wallet"></i><span>Settings</span> </a>
-                            <ul>
-                                <li><a href="">Add Settings</a></li>
                             </ul>
                         </li>
 

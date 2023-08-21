@@ -26,12 +26,16 @@
 <!-- authosearch -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css'>
+
 
 
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="{{asset('backend/assets/css/main.css')}}">
 
 <link rel="stylesheet" href="{{asset('backend/assets/css/color_skins.css')}}">
+
+
 <style>
     .icon-menu:before {
         display: none !important

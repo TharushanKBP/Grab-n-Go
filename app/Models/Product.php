@@ -42,4 +42,9 @@ class Product extends Model
     {
         return Product::with(['cat_info', 'sub_cat_info'])->orderBy('id', 'desc')->paginate(10);
     }
+
+    // public function brands()
+    // {
+    //     return $this->belongsToMany(Brand::class);
+    // }
 }
