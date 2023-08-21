@@ -26,6 +26,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
 
+
+    Route::get('/profile', [\App\Http\Controllers\AdminController::class, 'profile'])->name('admin-profile');
+    Route::post('/profile/{id}', [\App\Http\Controllers\AdminController::class, 'profileUpdate'])->name('profile-update');
+
+
+
+
     // Banner
     Route::resource('/banner', \App\Http\Controllers\BannerController::class);
     Route::post('/banner_status', [\App\Http\Controllers\BannerController::class, 'bannerStatus'])->name('banner.status');

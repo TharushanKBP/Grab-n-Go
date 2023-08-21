@@ -6,7 +6,7 @@
                 <span>Welcome,</span>
                 <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Pro. William</strong></a>
                 <ul class="dropdown-menu dropdown-menu-right account">
-                    <li><a href=""><i class="icon-user"></i>My Profile</a></li>
+                    <li><a href="{{route('admin-profile')}}"><i class="icon-user"></i>My Profile</a></li>
                     <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
                     <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
                     <li class="divider"></li>

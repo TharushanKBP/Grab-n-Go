@@ -1,31 +1,34 @@
-<!-- @extends('backend.layouts.master')
-
-@section('title','Admin Profile')
+@extends('backend.layouts.master')
 
 @section('content')
 
-<div class="card shadow mb-4">
-    <div class="row">
-        <div class="col-md-12">
-            @include('backend.layouts.notification')
+
+<div id="main-content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Add Brand</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="icon-home"></i></a></li>
+                        <li class="breadcrumb-item">Brands</li>
+                        <li class="breadcrumb-item active">Add Brand</li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
-    </div>
-    <div class="card-header py-3">
-        <h4 class=" font-weight-bold">Profile</h4>
-        <ul class="breadcrumbs">
-            <li><a href="{{route('admin')}}" style="color:#999">Dashboard</a></li>
-            <li><a href="" class="active text-primary">Profile Page</a></li>
-        </ul>
-    </div>
-    <div class="card-body">
-        <div class="row">
+
+        <div class="row clearfix">
+
+
             <div class="col-md-4">
                 <div class="card">
                     <div class="image">
                         @if($profile->photo)
                         <img class="card-img-top img-fluid roundend-circle mt-4" style="border-radius:50%;height:80px;width:80px;margin:auto;" src="{{$profile->photo}}" alt="profile picture">
                         @else
-                        <img class="card-img-top img-fluid roundend-circle mt-4" style="border-radius:50%;height:80px;width:80px;margin:auto;" src="{{asset('backend/img/avatar.png')}}" alt="profile picture">
+                        <img class="card-img-top img-fluid roundend-circle mt-4" style="border-radius:50%;height:80px;width:80px;margin:auto;" src="{{asset('backend/assets/imgages/avatar.png')}}" alt="profile picture">
                         @endif
                     </div>
                     <div class="card-body mt-4 ml-2">
@@ -35,6 +38,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-8">
                 <form class="border px-4 pt-2 pb-3" method="POST" action="{{route('profile-update',$profile->id)}}">
                     @csrf
@@ -62,12 +66,14 @@
                                     <i class="fa fa-picture-o"></i> Choose
                                 </a>
                             </span>
-                            <input id="thumbnail" class="form-control" type="text" name="photo" value="{{$profile->photo}}">
+                            <input id="thumbnail" class="form-control" type="text" name="photo" value="{{old('photo')}}">
                         </div>
+                        <img id="holder" style="margin-top:15px;max-height:100px;">
                         @error('photo')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
+
                     <div class="form-group">
                         <label for="role" class="col-form-label">Role</label>
                         <select name="role" class="form-control">
@@ -83,7 +89,9 @@
                     <button type="submit" class="btn btn-success btn-sm">Update</button>
                 </form>
             </div>
+
         </div>
+
     </div>
 </div>
 
@@ -112,7 +120,7 @@
     }
 
     .image {
-        background:url('{{asset(' backend/img/background.jpg')}}');
+        background:url('{{asset(' backend/assets/images/image3.jpg')}}');
         height: 150px;
         background-position: center;
         background-attachment: cover;
@@ -132,9 +140,12 @@
     }
 </style>
 
-@push('scripts')
+@section('scripts')
+
 <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+
 <script>
     $('#lfm').filemanager('image');
 </script>
-@endpush -->
+
+@endsection
