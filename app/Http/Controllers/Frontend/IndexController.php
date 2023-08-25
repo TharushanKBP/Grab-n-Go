@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
     public function home()
     {
-        return view('frontend.layouts.master');
+        $product = Product::where(['status' => 'active'])->orderBy('id', 'DESC')->limit('15')->get();
+        return view('frontend.layouts.master', compact('product'));
     }
 }

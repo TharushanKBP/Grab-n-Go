@@ -25,53 +25,29 @@
             </div>
         </div>
 
+
         <!-- product Slider (Second Row) -->
         <div class="row">
+
             <div class="slider-content-main">
+
                 <div id="productCarousel">
 
+                    @if(count($product)>0)
+
+                    @foreach($product as $product)
                     <!--First Slide-->
                     <div class="ps-single-slide">
                         @include('frontend.pages.product-loop-item');
                     </div>
 
-                    <!--Second Slide-->
-                    <div class="ps-single-slide">
-                        @include('frontend.pages.product-loop-item');
-                    </div>
-
-                    <!--Third Slide-->
-                    <div class="ps-single-slide">
-                        @include('frontend.pages.product-loop-item');
-                    </div>
-
-                    <!--Fourth Slide-->
-                    <div class="ps-single-slide">
-                        @include('frontend.pages.product-loop-item');
-                    </div>
-
-                    <!--Fifth Slide-->
-                    <div class="ps-single-slide">
-                        @include('frontend.pages.product-loop-item');
-                    </div>
-
-                    <!--Sixth Slide-->
-                    <div class="ps-single-slide">
-                        @include('frontend.pages.product-loop-item');
-                    </div>
-
-                    <!--Seventh Slide-->
-                    <div class="ps-single-slide">
-                        @include('frontend.pages.product-loop-item');
-                    </div>
-
-                    <!--Eighth Slide-->
-                    <div class="ps-single-slide">
-                        @include('frontend.pages.product-loop-item');
-                    </div>
-
+                    @endforeach
+                    @endif
                 </div>
+
             </div>
+
         </div>
+
     </div>
 </div>
