@@ -61,10 +61,10 @@
         </div>
     </div>
 
-    @include('frontend.pages.category-slider');
-    @include('frontend.pages.product-slider');
-    @include('frontend.pages.hot-offers');
+    @include('frontend.pages.category-slider')
+    @include('frontend.pages.product-slider')
+    @include('frontend.pages.hot-offers')
 
 </main>
 
-@include('frontend.layouts.footer');
+@include('frontend.layouts.footer')

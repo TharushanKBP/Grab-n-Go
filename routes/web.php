@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+//Login 
+
+Route::get('user/auth', [\App\Http\Controllers\Frontend\IndexController::class, 'userAuth'])->name('user.auth');
+
 //Frontend section
 Route::get('/', [\App\Http\Controllers\Frontend\IndexController::class, 'home'])->name('home');
 

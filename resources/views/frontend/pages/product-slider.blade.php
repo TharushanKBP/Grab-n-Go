@@ -38,7 +38,7 @@
                     @foreach($product as $product)
                     <!--First Slide-->
                     <div class="ps-single-slide">
-                        @include('frontend.pages.product-loop-item');
+                        @include('frontend.pages.product-loop-item')
                     </div>
 
                     @endforeach

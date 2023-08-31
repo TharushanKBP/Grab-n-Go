@@ -44,8 +44,8 @@
                 </div>
                 <div class="col-2" style="width: 20%; display: flex; gap: 40px; color: #000;">
                     <!-- Icon Group (User, Wishlist, Cart) -->
-                    <i class="fas fa-user" style="display: flex; align-items: center;"></i>
-                    <i class="fas fa-heart" style="display: flex; align-items: center;"></i>
+                    <a href="{{route('user.auth')}}" class="fas fa-user" style="display: flex; align-items: center; color:#000"></a>
+                    <a class="fas fa-heart" style="display: flex; align-items: center; color:#000"></a>
                     <span style="text-align: right; display: flex; align-items: center; font-size: 12px;"><i class="fas fa-shopping-cart" style="font-size: 16px; position: relative;"><span class="product-count" style="font-size: 10px; background-color: #ffc107; color: #fff; padding: 4px 6px; border-radius: 50%; position: absolute; top: -10; left: -10;">2</span></i>&nbsp &nbsp &nbsp &nbsp My Cart </br>LKR 2500</span>
                 </div>
             </div>
