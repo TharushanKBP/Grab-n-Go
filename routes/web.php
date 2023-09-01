@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\Auth;
 //authentication
 Route::get('user/auth', [\App\Http\Controllers\Frontend\IndexController::class, 'userAuth'])->name('user.auth');
 Route::post('user/login', [\App\Http\Controllers\Frontend\IndexController::class, 'loginSubmit'])->name('login.submit');
+Route::post('user/register', [\App\Http\Controllers\Frontend\IndexController::class, 'registerSubmit'])->name('register.submit');
 
 
 //Frontend section
-Route::get('/', [\App\Http\Controllers\Frontend\IndexController::class, 'home'])->name('home');
+Route::get('/', [\App\Http\Controllers\Frontend\IndexController::class, 'Home'])->name('Home');
 
 
 
@@ -31,7 +32,7 @@ Route::get('/', [\App\Http\Controllers\Frontend\IndexController::class, 'home'])
 
 Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/index', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 // Admin dashboard

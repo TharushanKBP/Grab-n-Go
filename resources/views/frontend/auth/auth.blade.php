@@ -22,7 +22,7 @@
                 @csrf
                 <div class="input-field">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email / Username" required autocomplete="email" autofocus>
+                    <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email / name" required autocomplete="email" autofocus>
                     @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -63,43 +63,58 @@
 
         <div class="from-signup-box">
 
-            <from action="#" method="post">
+            <img src="{{asset('frontend/assests/images/site-logo.png')}}" class="logo">
 
-                <img src="{{asset('frontend/assests/images/site-logo.png')}}" class="logo">
+            <form method="POST" action="{{ route('register.submit') }}">
+                {{@csrf_field()}}
 
+                <div class="input-field">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="name" placeholder="Enter your Name">
+                    @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
 
-                <div class="input-group">
+                <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" class="form-control" name="email" value="{{ old('email') }}" id="email" placeholder="Email">
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
 
-                    <div class="input-field">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" name="name" placeholder="Enter you name" required />
-                    </div>
-
-                    <div class="input-field">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input type="email" name="email" placeholder="Enter you email" required />
-                    </div>
-
-                    <div class="input-field">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" name="password" placeholder="Create password" required />
-                    </div>
-
-                    <div class="input-field">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" name="confirm_password" placeholder="Confirm password" required />
-                    </div>
-
-                    <button class="button">Signup</button>
-
-                    <div class="login_signup">
-                        Already have an account? <a href="#" id="login">Login</a>
-
-                    </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" class="form-control" id="password" placeholder="Create Password" name="password">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
 
                 </div>
 
-            </from>
+
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" class="form-control" id="password" placeholder="Confirm Password" name="password_confirmation">
+
+
+                </div>
+
+                <button class="button">Signup</button>
+
+                <div class="login_signup">
+                    Already have an account? <a href="#" id="login">Login</a>
+
+                </div>
+
+                </from>
         </div>
 
     </section>

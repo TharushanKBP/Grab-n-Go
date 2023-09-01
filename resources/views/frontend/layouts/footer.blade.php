@@ -156,6 +156,33 @@
 
 <script src="https://kit.fontawesome.com/376e5f6ada.js" crossorigin="anonymous"></script>
 
+@stack('scripts')
+<script>
+    setTimeout(function() {
+        $('.alert').slideUp();
+    }, 4000);
+    $(function() {
+        // ------------------------------------------------------- //
+        // Multi Level dropdowns
+        // ------------------------------------------------------ //
+        $("ul.dropdown-menu [data-toggle='dropdown']").on("click", function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            $(this).siblings().toggleClass("show");
+
+
+            if (!$(this).next().hasClass('show')) {
+                $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+            }
+            $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+                $('.dropdown-submenu .show').removeClass("show");
+            });
+
+        });
+    });
+</script>
+
 </body>
 
 </html>

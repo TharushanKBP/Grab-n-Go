@@ -1,7 +1,16 @@
 @include('frontend.layouts.header')
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @include('backend.layouts.notification')
+        </div>
+    </div>
+</div>
+
 <main>
     <div class="main-content">
+
         <div class="container">
             <div class="row">
                 <div class="flex3">
