@@ -14,12 +14,18 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-//Login 
-
+//authentication
 Route::get('user/auth', [\App\Http\Controllers\Frontend\IndexController::class, 'userAuth'])->name('user.auth');
+Route::post('user/login', [\App\Http\Controllers\Frontend\IndexController::class, 'loginSubmit'])->name('login.submit');
+
 
 //Frontend section
 Route::get('/', [\App\Http\Controllers\Frontend\IndexController::class, 'home'])->name('home');
+
+
+
+
+// Endfrontend section
 
 
 
@@ -27,14 +33,16 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+
+// Admin dashboard
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [App\Http\Controllers\AdminController::class, 'admin'])->name('admin');
 
 
+    // Admin profile
     Route::get('/profile', [\App\Http\Controllers\AdminController::class, 'profile'])->name('admin-profile');
     Route::post('/profile/{id}', [\App\Http\Controllers\AdminController::class, 'profileUpdate'])->name('profile-update');
-
-
 
 
     // Banner
@@ -71,4 +79,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     // User
     Route::resource('/user', \App\Http\Controllers\UserController::class);
     Route::post('/user_status', [\App\Http\Controllers\UserController::class, 'userStatus'])->name('user.status');
+});
+
+
+Route::group(['prefix' => 'seller', 'middleware' => ['auth', 'seller']], function () {
+    Route::get('/', [App\Http\Controllers\AdminController::class, 'admin'])->name('seller');
 });

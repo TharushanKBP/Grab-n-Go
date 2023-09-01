@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Auth;
+use Session;
+
 
 class IndexController extends Controller
 {
@@ -20,6 +23,23 @@ class IndexController extends Controller
 
     public function userAuth()
     {
-        return view('frontend.pages.login');
+        return view('frontend.auth.auth');
+    }
+
+    public function loginSubmit(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'email|required|exists:users,email',
+            'password' => 'required|min:4',
+        ]);
+
+        if (Auth::attempt(['email' => $request['email'], 'password' => $request['password'], 'status' => 'active'])) {
+            Session::put('user', $request['email']);
+            request()->session()->flash('success', 'Successfully login');
+            return redirect()->route('home');
+        } else {
+            request()->session()->flash('error', 'Invalid email and password pleas try again!');
+            return redirect()->back();
+        }
     }
 }
