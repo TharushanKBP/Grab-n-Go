@@ -28,7 +28,7 @@
                                     <div class="row">
                                         <div class="col-md-6 col-lg-4 slide-content">
                                             <div class="inner-content">
-                                                <h2>Discover New Amazing </br>Grocery Deals</h2>
+                                                <h2>{{$banner->title}}</h2>
                                                 <p>{!! html_entity_decode($banner->description)!!}</p>
                                                 <button class="btn btn-primary">Shop Now</button>
                                             </div>
