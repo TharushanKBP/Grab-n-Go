@@ -5,6 +5,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+    <!-- <link rel="stylesheet" href="{{asset('backend/assets/vendor/bootstrap/css/bootstrap.min.css')}}"> -->
+
     <link href="{{asset('frontend/assests/css/login_style.css')}}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/376e5f6ada.js" crossorigin="anonymous"></script>
 
@@ -13,6 +16,9 @@
 <body>
 
     <section class="container">
+
+        <img src="{{asset('frontend/assests/images/background.JPG')}}" class="container">
+
 
         <div class="from-box">
 
