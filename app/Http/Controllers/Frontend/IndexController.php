@@ -23,6 +23,13 @@ class IndexController extends Controller
         return view('frontend.layouts.master', compact('banner', 'banners', 'product'));
     }
 
+
+    public function Shop()
+    {
+        return view('frontend.pages_main.shop_main');
+    }
+
+
     public function userAuth()
     {
         return view('frontend.auth.auth');

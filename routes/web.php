@@ -23,6 +23,9 @@ Route::post('user/register', [\App\Http\Controllers\Frontend\IndexController::cl
 //Frontend section
 Route::get('/', [\App\Http\Controllers\Frontend\IndexController::class, 'Home'])->name('Home');
 
+// shop page
+Route::get('/shop', [\App\Http\Controllers\Frontend\IndexController::class, 'Shop'])->name('Shop');
+
 
 
 

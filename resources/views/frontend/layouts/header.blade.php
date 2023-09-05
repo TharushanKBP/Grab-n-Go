@@ -61,7 +61,7 @@
                     <!-- Navigation Menu -->
                     <nav class="navbar navbar-expand">
                         <!-- Add your navigation links here -->
-                        <a>New Products</a>
+                        <a href="{{route('Shop')}}">New Products</a>
                         <a>Best Seller</a>
                         <a>Promotions</a>
                         <a>Special Price</a>
