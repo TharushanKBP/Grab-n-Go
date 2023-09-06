@@ -21,8 +21,8 @@
             <div class="col-12">
                 <h5>Product Details</h5>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('Home')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('Shop')}}">Shop</a></li>
                     <li class="breadcrumb-item active">Product Details</li>
                 </ol>
             </div>
