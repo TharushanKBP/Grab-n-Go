@@ -29,6 +29,11 @@ class IndexController extends Controller
         return view('frontend.pages_main.shop_main');
     }
 
+    public function SingleProduct()
+    {
+        return view('frontend.pages_main.single_product_main');
+    }
+
 
     public function userAuth()
     {

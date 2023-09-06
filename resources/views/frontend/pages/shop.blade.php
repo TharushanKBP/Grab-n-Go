@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-12 col-sm-5 col-md-4 col-lg-3">
                 <div class="shop_sidebar_area">
-                    
+
                     <!-- Single Widget -->
                     <div class="widget catagory mb-30">
                         <h6 class="widget-title">Product Categories</h6>
@@ -231,7 +231,7 @@
                                     </div>
 
                                     <!-- <p class="brand_name">Top</p> -->
-                                    <a href="#">Asus ROG Laptop</a>
+                                    <a href="{{route('SingleProduct')}}">Asus ROG Laptop</a>
                                     <h6 class="product-price">$900</h6>
                                 </div>
                             </div>

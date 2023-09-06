@@ -27,4 +27,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta3/js/bootstrap-select.min.js"></script>
 
 
-@yield('scripts');
+@yield('scripts')

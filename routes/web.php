@@ -27,6 +27,9 @@ Route::get('/', [\App\Http\Controllers\Frontend\IndexController::class, 'Home'])
 Route::get('/shop', [\App\Http\Controllers\Frontend\IndexController::class, 'Shop'])->name('Shop');
 
 
+// single product 
+Route::get('/single_product', [\App\Http\Controllers\Frontend\IndexController::class, 'SingleProduct'])->name('SingleProduct');
+
 
 
 // Endfrontend section
