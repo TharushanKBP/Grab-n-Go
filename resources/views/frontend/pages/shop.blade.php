@@ -195,12 +195,17 @@
                 <div class="shop_grid_product_area">
                     <div class="row justify-content-center">
                         <!-- Single Product -->
+
+                        @if(count($products)>0)
+
+                        @foreach($products as $product)
+
                         <div class="col-9 col-sm-12 col-md-6 col-lg-4">
                             <div class="single-product-area mb-30">
                                 <div class="product_image">
                                     <!-- Product Image -->
-                                    <img class="normal_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-                                    <img class="hover_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
+                                    <img class="normal_img" src="{{$product->photo}}" alt="">
+                                    <img class="hover_img" src="{{$product->photo}}" alt="">
 
                                     <!-- Product Badge -->
                                     <div class="product_badge">
@@ -222,7 +227,7 @@
                                 <div class="product_description">
                                     <!-- Add to cart -->
                                     <div class="product_add_to_cart">
-                                        <a href="#">Add to Cart</a>
+                                        <a href="#" data-quantity="1" data-product-id="{{$product->id}}" class="add_to_cart" id="add_to_cart{{$product->id}}">Add to Cart</a>
                                     </div>
 
                                     <!-- Quick View -->
@@ -231,358 +236,15 @@
                                     </div>
 
                                     <!-- <p class="brand_name">Top</p> -->
-                                    <a href="{{route('SingleProduct')}}">Asus ROG Laptop</a>
-                                    <h6 class="product-price">$900</h6>
+                                    <a href="{{route('SingleProduct',$product->slug)}}">{{$product->title}}</a>
+                                    <h6 class="product-price">Rs. {{$product->regular_price}}.00</h6>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Single Product -->
-                        <div class="col-9 col-sm-12 col-md-6 col-lg-4">
-                            <div class="single-product-area mb-30">
-                                <div class="product_image">
-                                    <!-- Product Image -->
-                                    <img class="normal_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-                                    <img class="hover_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
+                        @endforeach
+                        @endif
 
-                                    <!-- Product Badge -->
-                                    <div class="product_badge">
-                                        <span>New</span>
-                                    </div>
-
-                                    <!-- Wishlist -->
-                                    <!-- <div class="product_wishlist">
-                                        <a href="wishlist.html"><i class="icofont-heart"></i></a>
-                                    </div> -->
-
-                                    <!-- Compare -->
-                                    <!-- <div class="product_compare">
-                                        <a href="compare.html"><i class="icofont-exchange"></i></a>
-                                    </div> -->
-                                </div>
-
-                                <!-- Product Description -->
-                                <div class="product_description">
-                                    <!-- Add to cart -->
-                                    <div class="product_add_to_cart">
-                                        <a href="#">Add to Cart</a>
-                                    </div>
-
-                                    <!-- Quick View -->
-                                    <div class="product_quick_view">
-                                        <a href="#" data-toggle="modal" data-target="#quickview">Quick View</a>
-                                    </div>
-
-                                    <!-- <p class="brand_name">Zara</p> -->
-                                    <a href="#">Asus ROG Laptop</a>
-                                    <h6 class="product-price">$900</h6>
-
-                                    <!-- <h6 class="product-price">$34 <span>$48</span></h6> -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product -->
-                        <div class="col-9 col-sm-12 col-md-6 col-lg-4">
-                            <div class="single-product-area mb-30">
-                                <div class="product_image">
-                                    <!-- Product Image -->
-                                    <img class="normal_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-                                    <img class="hover_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-
-
-                                    <!-- Product Badge -->
-                                    <div class="product_badge">
-                                        <span>New</span>
-                                    </div>
-
-                                    <!-- Wishlist -->
-                                    <!-- <div class="product_wishlist">
-                                        <a href="wishlist.html"><i class="icofont-heart"></i></a>
-                                    </div> -->
-
-                                    <!-- Compare -->
-                                    <!-- <div class="product_compare">
-                                        <a href="compare.html"><i class="icofont-exchange"></i></a>
-                                    </div> -->
-                                </div>
-
-                                <!-- Product Description -->
-                                <div class="product_description">
-                                    <!-- Add to cart -->
-                                    <div class="product_add_to_cart">
-                                        <a href="#">Add to Cart</a>
-                                    </div>
-
-                                    <!-- Quick View -->
-                                    <div class="product_quick_view">
-                                        <a href="#" data-toggle="modal" data-target="#quickview">Quick View</a>
-                                    </div>
-
-                                    <!-- <p class="brand_name">Sarah</p> -->
-                                    <a href="#">Asus ROG Laptop</a>
-                                    <h6 class="product-price">$900</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product -->
-                        <div class="col-9 col-sm-12 col-md-6 col-lg-4">
-                            <div class="single-product-area mb-30">
-                                <div class="product_image">
-                                    <!-- Product Image -->
-                                    <img class="normal_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-                                    <img class="hover_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-
-                                    <!-- Product Badge -->
-                                    <div class="product_badge">
-                                        <span>New</span>
-                                    </div>
-
-                                    <!-- Wishlist -->
-                                    <!-- <div class="product_wishlist">
-                                        <a href="wishlist.html"><i class="icofont-heart"></i></a>
-                                    </div> -->
-
-                                    <!-- Compare -->
-                                    <!-- <div class="product_compare">
-                                        <a href="compare.html"><i class="icofont-exchange"></i></a>
-                                    </div> -->
-                                </div>
-
-                                <!-- Product Description -->
-                                <div class="product_description">
-                                    <!-- Add to cart -->
-                                    <div class="product_add_to_cart">
-                                        <a href="#">Add to Cart</a>
-                                    </div>
-
-                                    <!-- Quick View -->
-                                    <div class="product_quick_view">
-                                        <a href="#" data-toggle="modal" data-target="#quickview">Quick View</a>
-                                    </div>
-
-                                    <!-- <p class="brand_name">Havit</p> -->
-                                    <a href="#">Asus ROG Laptop</a>
-                                    <h6 class="product-price">$900</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product -->
-                        <div class="col-9 col-sm-12 col-md-6 col-lg-4">
-                            <div class="single-product-area mb-30">
-                                <div class="product_image">
-                                    <!-- Product Image -->
-                                    <img class="normal_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-                                    <img class="hover_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-
-                                    <!-- Product Badge -->
-                                    <div class="product_badge">
-                                        <span>New</span>
-                                    </div>
-
-                                    <!-- Wishlist -->
-                                    <!-- <div class="product_wishlist">
-                                        <a href="wishlist.html"><i class="icofont-heart"></i></a>
-                                    </div> -->
-
-                                    <!-- Compare -->
-                                    <!-- <div class="product_compare">
-                                        <a href="compare.html"><i class="icofont-exchange"></i></a>
-                                    </div> -->
-                                </div>
-
-                                <!-- Product Description -->
-                                <div class="product_description">
-                                    <!-- Add to cart -->
-                                    <div class="product_add_to_cart">
-                                        <a href="#">Add to Cart</a>
-                                    </div>
-
-                                    <!-- Quick View -->
-                                    <div class="product_quick_view">
-                                        <a href="#" data-toggle="modal" data-target="#quickview">Quick View</a>
-                                    </div>
-
-                                    <!-- <p class="brand_name">Women</p> -->
-                                    <a href="#">Asus ROG Laptop</a>
-                                    <h6 class="product-price">$900</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product -->
-                        <div class="col-9 col-sm-12 col-md-6 col-lg-4">
-                            <div class="single-product-area mb-30">
-                                <div class="product_image">
-                                    <!-- Product Image -->
-                                    <img class="normal_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-                                    <img class="hover_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-
-                                    <!-- Product Badge -->
-                                    <div class="product_badge">
-                                        <span>New</span>
-                                    </div>
-
-                                    <!-- Wishlist -->
-                                    <!-- <div class="product_wishlist">
-                                        <a href="wishlist.html"><i class="icofont-heart"></i></a>
-                                    </div> -->
-
-                                    <!-- Compare -->
-                                    <!-- <div class="product_compare">
-                                        <a href="compare.html"><i class="icofont-exchange"></i></a>
-                                    </div> -->
-                                </div>
-
-                                <!-- Product Description -->
-                                <div class="product_description">
-                                    <!-- Add to cart -->
-                                    <div class="product_add_to_cart">
-                                        <a href="#">Add to Cart</a>
-                                    </div>
-
-                                    <!-- Quick View -->
-                                    <div class="product_quick_view">
-                                        <a href="#" data-toggle="modal" data-target="#quickview">Quick View</a>
-                                    </div>
-
-                                    <!-- <p class="brand_name">Top</p> -->
-                                    <a href="#">Asus ROG Laptop</a>
-                                    <h6 class="product-price">$900</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product -->
-                        <div class="col-9 col-sm-12 col-md-6 col-lg-4">
-                            <div class="single-product-area mb-30">
-                                <div class="product_image">
-                                    <!-- Product Image -->
-                                    <img class="normal_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-                                    <img class="hover_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-
-                                    <!-- Product Badge -->
-                                    <div class="product_badge">
-                                        <span>New</span>
-                                    </div>
-
-                                    <!-- Wishlist -->
-                                    <!-- <div class="product_wishlist">
-                                        <a href="wishlist.html"><i class="icofont-heart"></i></a>
-                                    </div> -->
-
-                                    <!-- Compare -->
-                                    <!-- <div class="product_compare">
-                                        <a href="compare.html"><i class="icofont-exchange"></i></a>
-                                    </div> -->
-                                </div>
-
-                                <!-- Product Description -->
-                                <div class="product_description">
-                                    <!-- Add to cart -->
-                                    <div class="product_add_to_cart">
-                                        <a href="#">Add to Cart</a>
-                                    </div>
-
-                                    <!-- Quick View -->
-                                    <div class="product_quick_view">
-                                        <a href="#" data-toggle="modal" data-target="#quickview">Quick View</a>
-                                    </div>
-
-                                    <!-- <p class="brand_name">Top</p> -->
-                                    <a href="#">Asus ROG Laptop</a>
-                                    <h6 class="product-price">$900</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product -->
-                        <div class="col-9 col-sm-12 col-md-6 col-lg-4">
-                            <div class="single-product-area mb-30">
-                                <div class="product_image">
-                                    <!-- Product Image -->
-                                    <img class="normal_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-                                    <img class="hover_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-
-                                    <!-- Product Badge -->
-                                    <div class="product_badge">
-                                        <span>New</span>
-                                    </div>
-
-                                    <!-- Wishlist -->
-                                    <!-- <div class="product_wishlist">
-                                        <a href="wishlist.html"><i class="icofont-heart"></i></a>
-                                    </div> -->
-
-                                    <!-- Compare -->
-                                    <!-- <div class="product_compare">
-                                        <a href="compare.html"><i class="icofont-exchange"></i></a>
-                                    </div> -->
-                                </div>
-
-                                <!-- Product Description -->
-                                <div class="product_description">
-                                    <!-- Add to cart -->
-                                    <div class="product_add_to_cart">
-                                        <a href="#">Add to Cart</a>
-                                    </div>
-
-                                    <!-- Quick View -->
-                                    <div class="product_quick_view">
-                                        <a href="#" data-toggle="modal" data-target="#quickview">Quick View</a>
-                                    </div>
-
-                                    <!-- <p class="brand_name">Top</p> -->
-                                    <a href="#">Asus ROG Laptop</a>
-                                    <h6 class="product-price">$900</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Product -->
-                        <div class="col-9 col-sm-12 col-md-6 col-lg-4">
-                            <div class="single-product-area mb-30">
-                                <div class="product_image">
-                                    <!-- Product Image -->
-                                    <img class="normal_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-                                    <img class="hover_img" src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="">
-
-                                    <!-- Product Badge -->
-                                    <div class="product_badge">
-                                        <span>New</span>
-                                    </div>
-
-                                    <!-- Wishlist -->
-                                    <!-- <div class="product_wishlist">
-                                        <a href="wishlist.html"><i class="icofont-heart"></i></a>
-                                    </div> -->
-
-                                    <!-- Compare -->
-                                    <!-- <div class="product_compare">
-                                        <a href="compare.html"><i class="icofont-exchange"></i></a>
-                                    </div> -->
-                                </div>
-
-                                <!-- Product Description -->
-                                <div class="product_description">
-                                    <!-- Add to cart -->
-                                    <div class="product_add_to_cart">
-                                        <a href="#"><i class="icofont-shopping-cart"></i>Add to Cart</a>
-                                    </div>
-
-                                    <!-- Quick View -->
-                                    <div class="product_quick_view">
-                                        <a href="#" data-toggle="modal" data-target="#quickview"><i class="icofont-eye-alt"></i>Quick View</a>
-                                    </div>
-
-                                    <!-- <p class="brand_name">Top</p> -->
-                                    <a href="#">Asus ROG Laptop</a>
-                                    <h6 class="product-price">$900</h6>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -612,3 +274,30 @@
         </div>
     </div>
 </section>
+
+<script>
+    $(document).on('click', '.add_to_cart', function(e) {
+        e.preventDefault();
+        var product_id = $(this).data('product-id');
+        var product_qty = $(this).data('quantity');
+
+
+        var path = "";
+
+        $.ajax({
+            url: path,
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                product_id: product_id,
+                product_qty: product_qty,
+                _token: token,
+            },
+            beforeSend: function() {
+                $('#add_to_cart' + product_id).html('<i class="fa fa-spinner fa-spin"></i> Loading.....');
+            }
+        })
+
+        alert(product_id);
+    })
+</script>

@@ -14,6 +14,9 @@ use App\Models\User;
 
 class IndexController extends Controller
 {
+
+    // Home
+
     public function Home()
     {
         $banner = Banner::where(['status' => 'active', 'condition' => 'banner'])->orderBy('id', 'DESC')->limit('5')->get();
@@ -23,17 +26,34 @@ class IndexController extends Controller
         return view('frontend.layouts.master', compact('banner', 'banners', 'product'));
     }
 
+    //    Shop page
 
     public function Shop()
     {
-        return view('frontend.pages_main.shop_main');
+        $products = Product::where(['status' => 'active'])->orderBy('id', 'DESC')->limit('15')->get();
+
+        if ($products) {
+            return view('frontend.pages_main.shop_main',  compact('products'));
+        } else {
+            return 'Product detail not found';
+        }
     }
 
-    public function SingleProduct()
+    // Single_product page
+
+    public function SingleProduct($slug)
     {
-        return view('frontend.pages_main.single_product_main');
-    }
+        // return $slug;
+        // $product = Product::where(['status' => 'active'])->orderBy('id', 'DESC')->limit('15')->get();
+        // return view('frontend.pages_main.single_product_main',compact('product'));
 
+        $product = Product::where('slug', $slug)->first();
+        if ($product) {
+            return view('frontend.pages_main.single_product_main', compact('product'));
+        } else {
+            return 'Product details not found';
+        }
+    }
 
     public function userAuth()
     {

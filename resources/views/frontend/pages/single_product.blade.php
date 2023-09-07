@@ -4,9 +4,11 @@
 <link href="{{asset('frontend/assests/css/product-slider.css')}}" rel="stylesheet">
 
 
+
+
+
 <script src="{{asset('frontend/assests/js/jquery.js')}}"></script>
 <script src="{{asset('frontend/assests/js/jquery.min.js')}}"></script>
-<script src="{{asset('frontend/assests/js/script_1.js')}}"></script>
 <script src="{{asset('frontend/assests/js/product-slider.js')}}"></script>
 <script src="{{asset('frontend/assests/js/productinfor.js')}}"></script>
 <script src="{{asset('frontend/assests/js/bootstrap.min.js')}}"></script>
@@ -34,40 +36,42 @@
 <div class="single-product-main">
 
     <div class="card-wrapper">
+
+
         <div class="card">
+
             <!-- card left -->
             <div class="product-imgs">
                 <div class="img-display">
                     <span class="sp-discount">25% off</span>
+
+                    @php
+                    $photo=explode(',',$product->photo);
+                    @endphp
+                    @foreach($photo as $key=>$photo)
                     <div class="img-showcase">
-                        <img src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="shoe image">
+
+                        <img src="{{$photo[0]}}" alt="shoe image">
                         <img src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="shoe image">
                         <img src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="shoe image">
                         <img src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="shoe image">
                     </div>
+                    @endforeach
                 </div>
                 <div class="img-select">
+                    @php
+                    $photo=explode(',',$product->photo);
+                    @endphp
+                    @foreach($photo as $key=>$photo)
+
                     <div class="img-item">
                         <a href="#" data-id="1">
                             <img src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="shoe image">
                         </a>
                     </div>
-                    <div class="img-item">
-                        <a href="#" data-id="2">
-                            <img src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="shoe image">
-                        </a>
-                    </div>
-                    <div class="img-item">
-                        <a href="#" data-id="3">
-                            <img src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="shoe image">
-                        </a>
-                    </div>
-                    <div class="img-item">
-                        <a href="#" data-id="4">
-                            <img src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="shoe image">
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
+
             </div>
             <!-- card right -->
             <div class="product-content">
@@ -101,6 +105,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
 
@@ -313,20 +318,30 @@
                 <div class="slider-content-main">
                     <div id="productCarousel">
 
+                        @php
+
+                        $new_products=\App\Models\Product::where(['status'=>'active'])->orderBy('id','DESC')->limit('10')->get();
+
+                        @endphp
+
+                        @if(count($new_products)>0)
+
+                        @foreach($new_products as $nproduct)
+
                         <!--First Slide-->
                         <div class="ps-single-slide">
                             <div class="loop-wrapper">
-                                <div class="product-image" style="background-image: url('frontend/assests/images/asus-rog-laptop.png');">
-                                    <span class="product-discount">25% off</span>
+                                <div class="product-image" style="background-image: url({{$nproduct->photo}});">
+                                    <span class="product-discount">{{$nproduct->discount}}% off</span>
                                     <a href="#" class="add-to-wishlist"><i class="fa-regular fa-heart"></i></a>
                                 </div>
 
                                 <div class="product-details-wrapper">
                                     <div class="product-meta">
                                         <span class="product-category">Electronics</span>
-                                        <h2 class="product-title">Asus Rog Laptop</h2>
-                                        <span class="regular-price">Rs. 200,000.00</span>
-                                        <span class="member-price">Rs. 190,000.00 <span class="member-price-inner">/ for members<span></span>
+                                        <h2 class="product-title">{{$nproduct->title}}</h2>
+                                        <span class="regular-price">Rs. {{$nproduct->regular_price}}.00</span>
+                                        <span class="member-price">Rs. {{$nproduct->membership_price}}.00 <span class="member-price-inner">/ for members<span></span>
                                     </div>
                                     <div class="addtocart-wrapper">
                                         <div class="quantity-gruop">
@@ -338,200 +353,8 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!--Second Slide-->
-                        <div class="ps-single-slide">
-                            <div class="loop-wrapper">
-                                <div class="product-image" style="background-image: url('frontend/assests/images/asus-rog-laptop.png');">
-                                    <span class="product-discount">25% off</span>
-                                    <a href="#" class="add-to-wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-
-                                <div class="product-details-wrapper">
-                                    <div class="product-meta">
-                                        <span class="product-category">Electronics</span>
-                                        <h2 class="product-title">Asus Rog Laptop</h2>
-                                        <span class="regular-price">Rs. 200,000.00</span>
-                                        <span class="member-price">Rs. 190,000.00 <span class="member-price-inner">/ for members<span></span>
-                                    </div>
-                                    <div class="addtocart-wrapper">
-                                        <div class="quantity-gruop">
-                                            <input type="number" class="item-quantity" value="1">
-                                            <span class="total-price">Total : Rs. 190,000.00</span>
-                                        </div>
-                                        <button class="add-to-cart-button">Add to cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Third Slide-->
-                        <div class="ps-single-slide">
-                            <div class="ps-single-slide">
-                                <div class="loop-wrapper">
-                                    <div class="product-image" style="background-image: url('frontend/assests/images/asus-rog-laptop.png');">
-                                        <span class="product-discount">25% off</span>
-                                        <a href="#" class="add-to-wishlist"><i class="fa-regular fa-heart"></i></a>
-                                    </div>
-
-                                    <div class="product-details-wrapper">
-                                        <div class="product-meta">
-                                            <span class="product-category">Electronics</span>
-                                            <h2 class="product-title">Asus Rog Laptop</h2>
-                                            <span class="regular-price">Rs. 200,000.00</span>
-                                            <span class="member-price">Rs. 190,000.00 <span class="member-price-inner">/ for members<span></span>
-                                        </div>
-                                        <div class="addtocart-wrapper">
-                                            <div class="quantity-gruop">
-                                                <input type="number" class="item-quantity" value="1">
-                                                <span class="total-price">Total : Rs. 190,000.00</span>
-                                            </div>
-                                            <button class="add-to-cart-button">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Fourth Slide-->
-                        <div class="ps-single-slide">
-                            <div class="ps-single-slide">
-                                <div class="loop-wrapper">
-                                    <div class="product-image" style="background-image: url('frontend/assests/images/asus-rog-laptop.png');">
-                                        <span class="product-discount">25% off</span>
-                                        <a href="#" class="add-to-wishlist"><i class="fa-regular fa-heart"></i></a>
-                                    </div>
-
-                                    <div class="product-details-wrapper">
-                                        <div class="product-meta">
-                                            <span class="product-category">Electronics</span>
-                                            <h2 class="product-title">Asus Rog Laptop</h2>
-                                            <span class="regular-price">Rs. 200,000.00</span>
-                                            <span class="member-price">Rs. 190,000.00 <span class="member-price-inner">/ for members<span></span>
-                                        </div>
-                                        <div class="addtocart-wrapper">
-                                            <div class="quantity-gruop">
-                                                <input type="number" class="item-quantity" value="1">
-                                                <span class="total-price">Total : Rs. 190,000.00</span>
-                                            </div>
-                                            <button class="add-to-cart-button">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Fifth Slide-->
-                        <div class="ps-single-slide">
-                            <div class="ps-single-slide">
-                                <div class="loop-wrapper">
-                                    <div class="product-image" style="background-image: url('frontend/assests/images/asus-rog-laptop.png');">
-                                        <span class="product-discount">25% off</span>
-                                        <a href="#" class="add-to-wishlist"><i class="fa-regular fa-heart"></i></a>
-                                    </div>
-
-                                    <div class="product-details-wrapper">
-                                        <div class="product-meta">
-                                            <span class="product-category">Electronics</span>
-                                            <h2 class="product-title">Asus Rog Laptop</h2>
-                                            <span class="regular-price">Rs. 200,000.00</span>
-                                            <span class="member-price">Rs. 190,000.00 <span class="member-price-inner">/ for members<span></span>
-                                        </div>
-                                        <div class="addtocart-wrapper">
-                                            <div class="quantity-gruop">
-                                                <input type="number" class="item-quantity" value="1">
-                                                <span class="total-price">Total : Rs. 190,000.00</span>
-                                            </div>
-                                            <button class="add-to-cart-button">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Sixth Slide-->
-                        <div class="ps-single-slide">
-                            <div class="ps-single-slide">
-                                <div class="loop-wrapper">
-                                    <div class="product-image" style="background-image: url('frontend/assests/images/asus-rog-laptop.png');">
-                                        <span class="product-discount">25% off</span>
-                                        <a href="#" class="add-to-wishlist"><i class="fa-regular fa-heart"></i></a>
-                                    </div>
-
-                                    <div class="product-details-wrapper">
-                                        <div class="product-meta">
-                                            <span class="product-category">Electronics</span>
-                                            <h2 class="product-title">Asus Rog Laptop</h2>
-                                            <span class="regular-price">Rs. 200,000.00</span>
-                                            <span class="member-price">Rs. 190,000.00 <span class="member-price-inner">/ for members<span></span>
-                                        </div>
-                                        <div class="addtocart-wrapper">
-                                            <div class="quantity-gruop">
-                                                <input type="number" class="item-quantity" value="1">
-                                                <span class="total-price">Total : Rs. 190,000.00</span>
-                                            </div>
-                                            <button class="add-to-cart-button">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Seventh Slide-->
-                        <div class="ps-single-slide">
-                            <div class="ps-single-slide">
-                                <div class="loop-wrapper">
-                                    <div class="product-image" style="background-image: url('frontend/assests/images/asus-rog-laptop.png');">
-                                        <span class="product-discount">25% off</span>
-                                        <a href="#" class="add-to-wishlist"><i class="fa-regular fa-heart"></i></a>
-                                    </div>
-
-                                    <div class="product-details-wrapper">
-                                        <div class="product-meta">
-                                            <span class="product-category">Electronics</span>
-                                            <h2 class="product-title">Asus Rog Laptop</h2>
-                                            <span class="regular-price">Rs. 200,000.00</span>
-                                            <span class="member-price">Rs. 190,000.00 <span class="member-price-inner">/ for members<span></span>
-                                        </div>
-                                        <div class="addtocart-wrapper">
-                                            <div class="quantity-gruop">
-                                                <input type="number" class="item-quantity" value="1">
-                                                <span class="total-price">Total : Rs. 190,000.00</span>
-                                            </div>
-                                            <button class="add-to-cart-button">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Eighth Slide-->
-                        <div class="ps-single-slide">
-                            <div class="ps-single-slide">
-                                <div class="loop-wrapper">
-                                    <div class="product-image" style="background-image: url('frontend/assests/images/asus-rog-laptop.png');">
-                                        <span class="product-discount">25% off</span>
-                                        <a href="#" class="add-to-wishlist"><i class="fa-regular fa-heart"></i></a>
-                                    </div>
-
-                                    <div class="product-details-wrapper">
-                                        <div class="product-meta">
-                                            <span class="product-category">Electronics</span>
-                                            <h2 class="product-title">Asus Rog Laptop</h2>
-                                            <span class="regular-price">Rs. 200,000.00</span>
-                                            <span class="member-price">Rs. 190,000.00 <span class="member-price-inner">/ for members<span></span>
-                                        </div>
-                                        <div class="addtocart-wrapper">
-                                            <div class="quantity-gruop">
-                                                <input type="number" class="item-quantity" value="1">
-                                                <span class="total-price">Total : Rs. 190,000.00</span>
-                                            </div>
-                                            <button class="add-to-cart-button">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        @endif
 
                     </div>
 
@@ -543,3 +366,5 @@
     </div>
 
 </div>
+
+<script src="{{asset('frontend/assests/js/singlescript.js')}}"></script>

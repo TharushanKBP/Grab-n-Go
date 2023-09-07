@@ -28,7 +28,10 @@ Route::get('/shop', [\App\Http\Controllers\Frontend\IndexController::class, 'Sho
 
 
 // single product 
-Route::get('/single_product', [\App\Http\Controllers\Frontend\IndexController::class, 'SingleProduct'])->name('SingleProduct');
+Route::get('single_product/{slug}/', [\App\Http\Controllers\Frontend\IndexController::class, 'SingleProduct'])->name('SingleProduct');
+
+
+
 
 
 
