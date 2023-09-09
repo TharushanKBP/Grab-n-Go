@@ -204,8 +204,10 @@
                             <div class="single-product-area mb-30">
                                 <div class="product_image">
                                     <!-- Product Image -->
-                                    <img class="normal_img" src="{{$product->photo}}" alt="">
-                                    <img class="hover_img" src="{{$product->photo}}" alt="">
+                                    @php
+                                    $photo=explode(',',$product->photo)
+                                    @endphp
+                                    <img class="normal_img" src="{{$photo[0]}}" alt="">
 
                                     <!-- Product Badge -->
                                     <div class="product_badge">

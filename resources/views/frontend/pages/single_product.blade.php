@@ -1,5 +1,5 @@
 <link href="{{asset('frontend/assests/css/bootstrap_1.min.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assests/css/style_sp.css')}}" rel="stylesheet">
+<link href="{{asset('frontend/assests/css/style.css')}}" rel="stylesheet">
 <link href="{{asset('frontend/assests/css/product-loop-item.css')}}" rel="stylesheet">
 <link href="{{asset('frontend/assests/css/product-slider.css')}}" rel="stylesheet">
 
@@ -35,78 +35,81 @@
 
 <div class="single-product-main">
 
-    <div class="card-wrapper">
 
+    <!-- Single Product Details Area -->
+    <section class="single_product_details_area section_padding_100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="single_product_thumb">
+                        <div id="product_details_slider" class="carousel slide" data-ride="carousel">
 
-        <div class="card">
+                            <!-- Carousel Inner -->
+                            <div class="carousel-inner">
+                                @php
+                                $photo=explode(',',$product->photo)
+                                @endphp
+                                @foreach($photo as $key=>$photo)
+                                <div class="carousel-item {{$key==0 ? 'active' : ''}}">
+                                    <a class="gallery_img" href="{{$photo}}" title="{{$product->title}}">
+                                        <img class="d-block w-100" src="{{$photo}}" alt="{{$product->title}}">
+                                    </a>
+                                    <!-- Product Badge -->
+                                    <div class="product_badge">
+                                        <span class="badge-new">New</span>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
 
-            <!-- card left -->
-            <div class="product-imgs">
-                <div class="img-display">
-                    <span class="sp-discount">25% off</span>
-
-                    @php
-                    $photo=explode(',',$product->photo);
-                    @endphp
-                    @foreach($photo as $key=>$photo)
-                    <div class="img-showcase">
-
-                        <img src="{{$photo[0]}}" alt="shoe image">
-                        <img src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="shoe image">
-                        <img src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="shoe image">
-                        <img src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="shoe image">
+                            <!-- Carosel Indicators -->
+                            <ol class="carousel-indicators">
+                                @php
+                                $photo=explode(',',$product->photo)
+                                @endphp
+                                @foreach($photo as $key=>$photo)
+                                <li class="{{$key==0 ? 'active' : ''}}" data-target="#product_details_slider" data-slide-to="0" style="background-image: url({{$photo}});">
+                                </li>
+                                @endforeach
+                            </ol>
+                        </div>
                     </div>
-                    @endforeach
                 </div>
-                <div class="img-select">
-                    @php
-                    $photo=explode(',',$product->photo);
-                    @endphp
-                    @foreach($photo as $key=>$photo)
 
-                    <div class="img-item">
-                        <a href="#" data-id="1">
-                            <img src="{{asset('frontend/assests/images/asus-rog-laptop.png')}}" alt="shoe image">
-                        </a>
+                <!-- Single Product Description -->
+                <div class="col-12 col-lg-6">
+                    <div class="single_product_desc">
+                        <h1 class="title mb-2">{{$product->title}}</h1>
+                        <br>
+                        <h4 class="price mb-4">Price: LKR{{$product->regular_price}}.00<!-- <span>$190</span></h4> -->
+                            <h4 class="price mb-4">For Members Price: LKR{{$product->membership_price}}.00<!-- <span>$190</span></h4> -->
+                                <!-- Overview -->
+                                <br><br>
+                                <div class="short_overview mb-4">
+                                    <h6>Overview</h6>
+                                    <p>{!! html_entity_decode($product->description)!!}</p>
+                                </div>
+
+
+
+
+
+                                <!-- Add to Cart Form -->
+                                <form class="cart clearfix my-5 d-flex flex-wrap align-items-center" method="post">
+                                    <div class="quantity">
+                                        <input type="number" class="qty-text form-control" id="qty2" step="1" min="1" max="12" name="quantity" value="1">
+                                    </div>
+                                    <button type="submit" name="addtocart" value="5" class="btn btn-primary mt-1 mt-md-0 ml-1 ml-md-3">Add to cart</button>
+                                </form>
+
                     </div>
-                    @endforeach
-                </div>
-
-            </div>
-            <!-- card right -->
-            <div class="product-content">
-                <h2 class="sp-title">Dell G3 15 Gaming Laptop</h2>
-                <br>
-                <div class="product-price">
-                    <!-- <p class = "last-price">Price: <span>$257.00</span></p> -->
-                    <p class="new-price">Price: <span>$269.00</span></p>
-                    <p class="new-price">For Members Price: <span>$249.00 (5%)</span></p>
-                </div>
-
-                <div class="product-detail">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Morbi eget mi risus. Etiam fermentum congue massa, at
-                        rutrum purus tristique ut. Morbi eget pulvinar magna.
-                        Duis diam enim, cursus vitae nisl eu, imperdiet porta urna
-                        Maecenas elit mi, volutpat eu porta vel, tincidunt quis liber
-                        Duis dolor enim, bibendum vitae tempus quis, rhoncus eget
-                        dolor. Suspendisse euismod odio eu commodo vestib
-
-                    </p>
-
-                </div>
-
-                <div class="purchase-info">
-                    <input type="number" min="0" value="1">
-                    <button type="button" class="btn">
-                        Add to Cart <i class="fas fa-shopping-cart"></i>
-                    </button>
-                    <!-- <button type = "button" class = "btn_1">Compare</button>  -->
                 </div>
             </div>
         </div>
 
-    </div>
+
+    </section>
+    <!-- Single Product Details Area End -->
 
 
     <div class="product-slider-main">
@@ -355,7 +358,6 @@
                         </div>
                         @endforeach
                         @endif
-
                     </div>
 
                 </div>
