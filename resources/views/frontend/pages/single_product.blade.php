@@ -78,30 +78,27 @@
 
                 <!-- Single Product Description -->
                 <div class="col-12 col-lg-6">
-                    <div class="single_product_desc">
-                        <h1 class="title mb-2">{{$product->title}}</h1>
+                    <div class="product-content">
+                        <h2 class="sp-title">{{$product->title}}</h2>
                         <br>
-                        <h4 class="price mb-4">Price: LKR{{$product->regular_price}}.00<!-- <span>$190</span></h4> -->
-                            <h4 class="price mb-4">For Members Price: LKR{{$product->membership_price}}.00<!-- <span>$190</span></h4> -->
-                                <!-- Overview -->
-                                <br><br>
-                                <div class="short_overview mb-4">
-                                    <h6>Overview</h6>
-                                    <p>{!! html_entity_decode($product->description)!!}</p>
-                                </div>
+                        <div class="product-price">
+                            <!-- <p class = "last-price">Price: <span>$257.00</span></p> -->
+                            <p class="new-price">Price: <span>LKR {{$product->regular_price}}</span></p>
+                            <p class="new-price">For Members Price: <span>LKR {{$product->membership_price}}</span></p>
+                        </div>
 
+                        <div class="product-detail">
+                            <p>{!! html_entity_decode($product->description)!!}</p>
 
+                        </div>
 
-
-
-                                <!-- Add to Cart Form -->
-                                <form class="cart clearfix my-5 d-flex flex-wrap align-items-center" method="post">
-                                    <div class="quantity">
-                                        <input type="number" class="qty-text form-control" id="qty2" step="1" min="1" max="12" name="quantity" value="1">
-                                    </div>
-                                    <button type="submit" name="addtocart" value="5" class="btn btn-primary mt-1 mt-md-0 ml-1 ml-md-3">Add to cart</button>
-                                </form>
-
+                        <div class="purchase-info">
+                            <input type="number" min="0" value="1">
+                            <button type="button" class="btn">
+                                Add to Cart <i class="fas fa-shopping-cart"></i>
+                            </button>
+                            <!-- <button type = "button" class = "btn_1">Compare</button>  -->
+                        </div>
                     </div>
                 </div>
             </div>

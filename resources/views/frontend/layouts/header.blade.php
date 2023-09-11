@@ -10,10 +10,15 @@
     <link href="{{asset('frontend/assests/css/header-style.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/assests/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/assests/css/index.css')}}" rel="stylesheet">
+    <link href="{{asset('frontend/assests/css/icofont.min.css')}}" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+
+    <link href="{{asset('frontend/assests/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('frontend/assests/css/style_sp.css')}}" rel="stylesheet">
 
 </head>
 
@@ -53,13 +58,35 @@
                 </div> -->
 
                 <div class="col-2" style="width: 20%; display: flex;">
-                    <!-- Wishlist -->
-                    <div class="wishlist-area">
-                        <a href="wishlist.html" class="wishlist-btn"><i class="icofont-heart"></i></a>
+
+
+                    <!-- User_Profile -->
+                    <div class="account-area">
+                        <div class="user-thumbnail">
+                            <img src="{{asset('frontend/assests/images/PT.jpeg')}}" alt="">
+                        </div>
+                        <ul class="user-meta-dropdown">
+                            @auth
+                            <li class="user-title"><span>Hello,</span> Pasindu</li>
+                            <li><a href="my-account.html">My Account</a></li>
+                            <li><a href="order-list.html">Orders List</a></li>
+                            <li><a href="wishlist.html">Wishlist</a></li>
+                            <li><a href="{{route('user.logout')}}"><i class="icofont-logout"></i> Logout</a></li>
+                            @else
+                            <li><a href="{{route('user.auth')}}"></li>Login & Register</li>
+                            @endauth
+                        </ul>
                     </div>
 
+                    <!-- Wishlist -->
+                    <div class="wishlist-area">
+                        <a href="wishlist.html" class="wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                    </div>
+
+
+
                     <div class="cart-area">
-                        <div class="cart--btn"><i class="icofont-cart"></i> <span class="cart_quantity">2</span>
+                        <div class="cart--btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><span class="cart_quantity">2</span>
                         </div>
 
                         <!-- Cart Dropdown Content -->
@@ -75,7 +102,7 @@
                                             <p>1 x - <span class="price">$32.99</span></p>
                                         </div>
                                     </div>
-                                    <span class="dropdown-product-remove"><i class="icofont-bin"></i></span>
+                                    <span class="dropdown-product-remove"><i class="fa fa-bitbucket" aria-hidden="true"></i></span>
                                 </li>
                                 <li>
                                     <div class="cart-item-desc">
@@ -87,7 +114,7 @@
                                             <p>2x - <span class="price">$49.99</span></p>
                                         </div>
                                     </div>
-                                    <span class="dropdown-product-remove"><i class="icofont-bin"></i></span>
+                                    <span class="dropdown-product-remove"><i class="fa fa-bitbucket" aria-hidden="true"></i></span>
                                 </li>
                             </ul>
                             <div class="cart-pricing my-4">
@@ -112,19 +139,6 @@
                         </div>
                     </div>
 
-                    <!-- User_Profile -->
-                    <div class="account-area">
-                        <div class="user-thumbnail">
-                            <img src="{{asset('frontend/assests/images/PT.jpeg')}}" alt="">
-                        </div>
-                        <ul class="user-meta-dropdown">
-                            <li class="user-title"><span>Hello,</span> Pasindu</li>
-                            <li><a href="my-account.html">My Account</a></li>
-                            <li><a href="order-list.html">Orders List</a></li>
-                            <li><a href="wishlist.html">Wishlist</a></li>
-                            <li><a href="login.html"><i class="icofont-logout"></i> Logout</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
 

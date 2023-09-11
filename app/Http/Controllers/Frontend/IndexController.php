@@ -92,7 +92,7 @@ class IndexController extends Controller
         Session::put('user', $data['email']);
         if ($check) {
             request()->session()->flash('success', 'Successfully registered');
-            return redirect()->route('Home');
+            return redirect()->route('user.auth');
         } else {
             request()->session()->flash('error', 'Please try again!');
             return back();
@@ -107,5 +107,13 @@ class IndexController extends Controller
             'password' => Hash::make($data['password']),
             'status' => 'active'
         ]);
+    }
+
+    public function logout()
+    {
+        Session::forget('user');
+        Auth::logout();
+        request()->session()->flash('success', 'Logout successfully');
+        return back();
     }
 }

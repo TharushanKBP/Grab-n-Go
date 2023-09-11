@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('user/auth', [\App\Http\Controllers\Frontend\IndexController::class, 'userAuth'])->name('user.auth');
 Route::post('user/login', [\App\Http\Controllers\Frontend\IndexController::class, 'loginSubmit'])->name('login.submit');
 Route::post('user/register', [\App\Http\Controllers\Frontend\IndexController::class, 'registerSubmit'])->name('register.submit');
+Route::get('user/logout', [\App\Http\Controllers\Frontend\IndexController::class, 'logout'])->name('user.logout');
 
 
 //Frontend section
@@ -30,6 +31,9 @@ Route::get('/shop', [\App\Http\Controllers\Frontend\IndexController::class, 'Sho
 // single product 
 Route::get('single_product/{slug}/', [\App\Http\Controllers\Frontend\IndexController::class, 'SingleProduct'])->name('SingleProduct');
 
+
+// cart section
+Route::post('cart/store', [\App\Http\Controllers\Frontend\CartController::class, 'cartStore'])->name('cart.store');
 
 
 

@@ -226,8 +226,9 @@ header{
         width: 35px;
         height: 35px;
         line-height: 35px;
-        background-color: #f8f8ff;
+        background-color: #ffffff;
         text-align: center;
+        margin-right: 15px;
         border-radius: 50%;
         cursor: pointer; }
 
@@ -290,7 +291,7 @@ header{
                 .container .account-area .user-meta-dropdown {
                   background-color: #ffffff;
                   border-radius: 3px;
-                  padding: 30px;
+                  padding: 10px;
                   position: absolute;
                   right: -10px;
                   text-align: left;
@@ -314,9 +315,9 @@ header{
                     font-weight: 600;
                     padding: 5px 0;
                     display: block;
-                    color: #747794; }
+                    color: #000000; }
                     .container .account-area .user-meta-dropdown a:hover, .container .account-area .user-meta-dropdown a:focus {
-                      color: #0f99f3; }
+                      color: #f3be0f; }
                 .container .account-area a {
                   border-radius: 50%;
                   width: 100%;

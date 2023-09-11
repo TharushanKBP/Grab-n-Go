@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            @include('backend.layouts.notification')
+            @include('frontend.layouts.notification')
         </div>
     </div>
 </div>

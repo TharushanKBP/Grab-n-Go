@@ -284,7 +284,8 @@
         var product_qty = $(this).data('quantity');
 
 
-        var path = "";
+        var token = "{{csrf_token()}}";
+        var path = "{{route('cart.store')}}";
 
         $.ajax({
             url: path,
@@ -297,9 +298,10 @@
             },
             beforeSend: function() {
                 $('#add_to_cart' + product_id).html('<i class="fa fa-spinner fa-spin"></i> Loading.....');
+            },
+            success: function(data) {
+                console.log(data);
             }
-        })
-
-        alert(product_id);
-    })
+        });
+    });
 </script>
