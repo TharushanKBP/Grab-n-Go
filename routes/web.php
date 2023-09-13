@@ -34,9 +34,7 @@ Route::get('single_product/{slug}/', [\App\Http\Controllers\Frontend\IndexContro
 
 // cart section
 Route::post('cart/store', [\App\Http\Controllers\Frontend\CartController::class, 'cartStore'])->name('cart.store');
-
-
-
+Route::post('cart/delete', [\App\Http\Controllers\Frontend\CartController::class, 'cartDelete'])->name('cart.delete');
 
 
 // Endfrontend section

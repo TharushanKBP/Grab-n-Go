@@ -57,4 +57,9 @@ class Product extends Model
     {
         return Product::with(['cat_info', 'rel_prods', 'getReview'])->where('slug', $slug)->first();
     }
+
+    public static function getProductByCart($id)
+    {
+        return self::where('id', $id)->get()->toArray();
+    }
 }

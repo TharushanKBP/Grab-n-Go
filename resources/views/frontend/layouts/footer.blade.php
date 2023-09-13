@@ -156,6 +156,13 @@
 
 <script src="https://kit.fontawesome.com/376e5f6ada.js" crossorigin="anonymous"></script>
 
+
+<script src="{{asset('frontend/assests/js/jquery.js')}}"></script>
+<script src="{{asset('frontend/assests/js/jquery.min.js')}}"></script>
+<script src="{{asset('frontend/assests/js/product-slider.js')}}"></script>
+<script src="{{asset('frontend/assests/js/productinfor.js')}}"></script>
+<script src="{{asset('frontend/assests/js/bootstrap.min.js')}}"></script>
+
 @stack('scripts')
 <script>
     setTimeout(function() {
@@ -182,7 +189,3 @@
         });
     });
 </script>
-
-</body>
-
-</html>

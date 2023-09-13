@@ -23,7 +23,7 @@ class IndexController extends Controller
         $banners = Banner::where(['status' => 'active', 'condition' => 'promo'])->orderBy('id', 'DESC')->limit('5')->get();
         $product = Product::where(['status' => 'active'])->orderBy('id', 'DESC')->limit('15')->get();
 
-        return view('frontend.layouts.master', compact('banner', 'banners', 'product'));
+        return view('frontend.pages.index', compact('banner', 'banners', 'product'));
     }
 
     //    Shop page
@@ -33,7 +33,7 @@ class IndexController extends Controller
         $products = Product::where(['status' => 'active'])->orderBy('id', 'DESC')->limit('15')->get();
 
         if ($products) {
-            return view('frontend.pages_main.shop_main',  compact('products'));
+            return view('frontend.pages.shop',  compact('products'));
         } else {
             return 'Product detail not found';
         }
@@ -49,7 +49,7 @@ class IndexController extends Controller
 
         $product = Product::where('slug', $slug)->first();
         if ($product) {
-            return view('frontend.pages_main.single_product_main', compact('product'));
+            return view('frontend.pages.single_product', compact('product'));
         } else {
             return 'Product details not found';
         }

@@ -1,17 +1,6 @@
-<link href="{{asset('frontend/assests/css/bootstrap_1.min.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assests/css/style.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assests/css/product-loop-item.css')}}" rel="stylesheet">
-<link href="{{asset('frontend/assests/css/product-slider.css')}}" rel="stylesheet">
+@extends('frontend.layouts.master')
 
-
-
-
-
-<script src="{{asset('frontend/assests/js/jquery.js')}}"></script>
-<script src="{{asset('frontend/assests/js/jquery.min.js')}}"></script>
-<script src="{{asset('frontend/assests/js/product-slider.js')}}"></script>
-<script src="{{asset('frontend/assests/js/productinfor.js')}}"></script>
-<script src="{{asset('frontend/assests/js/bootstrap.min.js')}}"></script>
+@section('content')
 
 
 
@@ -365,5 +354,7 @@
     </div>
 
 </div>
+
+@endsection
 
 <script src="{{asset('frontend/assests/js/singlescript.js')}}"></script>
