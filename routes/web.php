@@ -33,8 +33,10 @@ Route::get('single_product/{slug}/', [\App\Http\Controllers\Frontend\IndexContro
 
 
 // cart section
+Route::get('cart/store', [\App\Http\Controllers\Frontend\CartController::class, 'cart'])->name('cart');
 Route::post('cart/store', [\App\Http\Controllers\Frontend\CartController::class, 'cartStore'])->name('cart.store');
 Route::post('cart/delete', [\App\Http\Controllers\Frontend\CartController::class, 'cartDelete'])->name('cart.delete');
+Route::post('cart/update', [\App\Http\Controllers\Frontend\CartController::class, 'cartUpdate'])->name('cart.update');
 
 
 // Endfrontend section

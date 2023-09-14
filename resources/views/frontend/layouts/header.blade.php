@@ -78,7 +78,7 @@
                                     <p>{{$product->qty}} x - <span class="price">LKR {{number_format($product->price,2)}}</span></p>
                                 </div>
                             </div>
-                            <span class="dropdown-product-remove"><i class="fa fa-bitbucket" aria-hidden="true"></i></span>
+                            <span class="dropdown-product-remove cart_delete" data-id="{{$product->rowId}}"><i class="fa fa-bitbucket" aria-hidden="true"></i></span>
                         </li>
                         @endforeach
                     </ul>
@@ -98,8 +98,9 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="cart-box">
-                        <a href="checkout-1.html" class="btn btn-primary d-block">Checkout</a>
+                    <div class="cart-box d-flex">
+                        <a href="{{route('cart')}}" class="btn btn-success btn-sm">Cart</a>
+                        <a href="checkout-1.html" class="btn btn-primary btn-sm float-right">Checkout</a>
                     </div>
                 </div>
             </div>

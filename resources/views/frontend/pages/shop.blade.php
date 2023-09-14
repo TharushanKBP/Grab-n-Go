@@ -308,15 +308,20 @@
             },
             success: function(data) {
                 console.log(data);
-                $('body #header-ajax').html(data['header']);
+
                 if (data['status']) {
+                    $('body #header-ajax').html(data['header']);
+                    $('body #cart-counter').html(data['cart_count']);
                     swal({
                         title: "Good job!",
                         text: data['message'],
                         icon: "success",
-                        button: "OK!",
+                        button: "OK",
                     });
                 }
+            },
+            error: function(err) {
+                console.log(err);
             }
         });
     });

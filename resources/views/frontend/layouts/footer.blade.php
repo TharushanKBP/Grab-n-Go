@@ -163,6 +163,8 @@
 <script src="{{asset('frontend/assests/js/productinfor.js')}}"></script>
 <script src="{{asset('frontend/assests/js/bootstrap.min.js')}}"></script>
 
+
+
 @stack('scripts')
 <script>
     setTimeout(function() {
