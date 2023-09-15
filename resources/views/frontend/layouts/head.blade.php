@@ -1,25 +1,28 @@
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Title Of Site -->
+    <title>Grab n Go</title>
 
-    <title>:: GRAB-N-GO :: Home</title>
-    <link rel="shortcut icon" href="{{asset('frontend/assests/images/GNG-FAVICON.png')}}" type="image/x-icon">
+    <!-- Favicon -->
+    <link href="{{asset('frontend/assests/images/favicon.png')}}" rel="shortcut icon" />
+    <!-- Plugins CSS -->
+    <link href="{{asset('frontend/assests/css/plugins.css')}}" rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
-    <link href="{{asset('frontend/assests/css/header-style.css')}}" rel="stylesheet">
+    <!-- Main Style CSS -->
+    <link href="{{asset('frontend/assests/css/style-min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/assests/css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('frontend/assests/css/index.css')}}" rel="stylesheet">
-    <link href="{{asset('frontend/assests/css/icofont.min.css')}}" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-
-
-    <link href="{{asset('frontend/assests/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('frontend/assests/css/style_sp.css')}}" rel="stylesheet">
-
-    <!-- <link href="{{asset('frontend/assests/css/bootstrap_1.min.css')}}" rel="stylesheet"> -->
-    <link href="{{asset('frontend/assests/css/product-loop-item.css')}}" rel="stylesheet">
-    <link href="{{asset('frontend/assests/css/product-slider.css')}}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{asset('frontend/assests/css/style-min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assests/css/responsive.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assests/css/bottom-banners.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assests/css/category-slider.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assests/css/product-slider.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assests/css/hot-offers.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assests/css/index.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assests/css/offer-product-loop.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assests/css/product-loop-item.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assests/css/style.css')}}">
 </head>

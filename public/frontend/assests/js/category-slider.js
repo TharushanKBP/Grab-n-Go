@@ -3,8 +3,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextButton = document.querySelector('.next-button');
     const carouselContainer = document.getElementById('categoryCarousel');
     const slides = document.querySelectorAll('.cs-single-slide');
-    const slideWidth = slides[0].clientWidth + 30; // Add 30px for the gap between slides
-    const maxSlide = slides.length - 4;
+
+    const viewportWidth = document.documentElement.clientWidth;
+
+    // Check if it's a mobile device
+    const isMobileDevice = viewportWidth <= 992;
+    
+    // Adjust slideWidth and maxSlide based on device type
+    const slideWidth = isMobileDevice ? slides[0].clientWidth + 30 : slides[0].clientWidth + 30;
+    const maxSlide = isMobileDevice ? slides.length - 2 : slides.length - 4;
+    
+    
     let currentSlide = 0;
     let autoScrollInterval;
 

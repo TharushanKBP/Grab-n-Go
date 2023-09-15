@@ -19,45 +19,19 @@ class IndexController extends Controller
 
     public function Home()
     {
-        $banner = Banner::where(['status' => 'active', 'condition' => 'banner'])->orderBy('id', 'DESC')->limit('5')->get();
-        $banners = Banner::where(['status' => 'active', 'condition' => 'promo'])->orderBy('id', 'DESC')->limit('5')->get();
         $product = Product::where(['status' => 'active'])->orderBy('id', 'DESC')->limit('15')->get();
 
-        return view('frontend.pages.index', compact('banner', 'banners', 'product'));
+        return view('frontend.pages.index', compact('product'));
     }
 
-    //    Shop page
-
-    public function Shop()
+    public function userAuthlogin()
     {
-        $products = Product::where(['status' => 'active'])->orderBy('id', 'DESC')->limit('15')->get();
-
-        if ($products) {
-            return view('frontend.pages.shop',  compact('products'));
-        } else {
-            return 'Product detail not found';
-        }
+        return view('frontend.auth.login');
     }
 
-    // Single_product page
-
-    public function SingleProduct($slug)
+    public function userAuthregister()
     {
-        // return $slug;
-        // $product = Product::where(['status' => 'active'])->orderBy('id', 'DESC')->limit('15')->get();
-        // return view('frontend.pages_main.single_product_main',compact('product'));
-
-        $product = Product::where('slug', $slug)->first();
-        if ($product) {
-            return view('frontend.pages.single_product', compact('product'));
-        } else {
-            return 'Product details not found';
-        }
-    }
-
-    public function userAuth()
-    {
-        return view('frontend.auth.auth');
+        return view('frontend.auth.register');
     }
 
     public function loginSubmit(Request $request)
@@ -92,7 +66,7 @@ class IndexController extends Controller
         Session::put('user', $data['email']);
         if ($check) {
             request()->session()->flash('success', 'Successfully registered');
-            return redirect()->route('user.auth');
+            return redirect()->route('user.authlogin');
         } else {
             request()->session()->flash('error', 'Please try again!');
             return back();
@@ -115,5 +89,24 @@ class IndexController extends Controller
         Auth::logout();
         request()->session()->flash('success', 'Logout successfully');
         return back();
+    }
+
+    public function Shop()
+    {
+        return view('frontend.pages.shop');
+    }
+
+    public function SingleProduct()
+    {
+        // return $slug;
+        // $product = Product::where(['status' => 'active'])->orderBy('id', 'DESC')->limit('15')->get();
+        // return view('frontend.pages_main.single_product_main',compact('product'));
+
+        // $product = Product::where('slug', $slug)->first();
+        // if ($product) {
+        return view('frontend.pages.single_product');
+        // } else {
+        //     return 'Product details not found';
+        // }
     }
 }

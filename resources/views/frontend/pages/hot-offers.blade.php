@@ -16,11 +16,12 @@
                 </div>
 
                 <div class="offer-product-row">
-                    <?php
-                    for ($x = 1; $x <= 4; $x++) {
-                        @include('frontend.pages.offer-product-loop');
-                    }
-                    ?>
+
+                    @include('frontend.pages.offer-product-loop');
+                    @include('frontend.pages.offer-product-loop');
+                    @include('frontend.pages.offer-product-loop');
+                    @include('frontend.pages.offer-product-loop');
+
                 </div>
 
             </div>

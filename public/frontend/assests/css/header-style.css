@@ -34,302 +34,75 @@ header{
     gap: 50px;
 }
 
-.container .wishlist-area {
-    position: relative;
-    z-index: 1; }
-     .container .wishlist-area .wishlist-btn {
-      display: block;
-      width: 35px;
-      height: 35px;
-      line-height: 35px;
-      background-color: #f8f8ff;
-      text-align: center;
-      border-radius: 50%;
-      cursor: pointer;
-      margin-right: 15px; }
-      @media only screen and (max-width: 767px) {
-         .container .wishlist-area .wishlist-btn {
-          margin-right: 8px;
-          width: 30px;
-          height: 30px;
-          line-height: 30px; } }
-      @media only screen and (min-width: 576px) and (max-width: 767px) {
-         .container .wishlist-area .wishlist-btn {
-          margin-right: 15px;
-          width: 35px;
-          height: 35px;
-          line-height: 35px; } }
+.mheader{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
 
-.container .cart-area {
-            position: relative;
-            z-index: 2; }
-            .container .cart-area .cart--btn {
-              -webkit-transition-duration: 500ms;
-              -o-transition-duration: 500ms;
-              transition-duration: 500ms;
-              position: relative;
-              z-index: 1;
-              width: 35px;
-              height: 35px;
-              line-height: 35px;
-              background-color: #f8f8ff;
-              text-align: center;
-              border-radius: 50%;
-              cursor: pointer;
-              margin-right: 15px;
-              font-size: 16px; }
-        
-@media only screen and (max-width: 767px) {
-                .container .cart-area .cart--btn {
-                  margin-right: 8px;
-                  width: 30px;
-                  height: 30px;
-                  line-height: 30px; } }
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-                .container .cart-area .cart--btn {
-                  margin-right: 15px;
-                  width: 35px;
-                  height: 35px;
-                  line-height: 35px; } }
-        
-.container .cart-area .cart--btn:hover, .container .cart-area .cart--btn:focus {
-                    color: #0f99f3; }
-.container .cart-area .cart--btn .cart_quantity {
-                    -webkit-transition-duration: 500ms;
-                    -o-transition-duration: 500ms;
-                    transition-duration: 500ms;
-                    background-color: #ff9800;
-                    border-radius: 50%;
-                    color: #ffffff;
-                    font-size: 10px;
-                    height: 20px;
-                    line-height: 20px;
-                    position: absolute;
-                    right: -5px;
-                    text-align: center;
-                    top: -10px;
-                    width: 20px;
-                    z-index: 2;
-                    font-weight: 700; }
-        
-.container .cart-area .cart-dropdown-content {
-                        -webkit-transition-duration: 500ms;
-                        -o-transition-duration: 500ms;
-                        transition-duration: 500ms;
-                        background-color: #ffffff;
-                        box-shadow: 0 0 8px 0 rgba(47, 91, 234, 0.15);
-                        border-radius: 6px;
-                        position: absolute;
-                        right: -44px;
-                        top: 70px;
-                        width: 280px;
-                        z-index: 120;
-                        padding: 30px 25px;
-                        opacity: 0;
-                        visibility: hidden; }
-        
-                         .container .cart-area .cart-dropdown-content .cart-list li {
-                            border-bottom: 1px solid #d6e6fb;
-                            padding-bottom: 1rem; }
-        
-                             .container .cart-area .cart-dropdown-content li {
-                                display: -webkit-box;
-                                display: -ms-flexbox;
-                                display: flex;
-                                -webkit-box-align: center;
-                                -ms-flex-align: center;
-                                align-items: center;
-                                -webkit-box-pack: justify;
-                                -ms-flex-pack: justify;
-                                justify-content: space-between;
-                                margin-bottom: 1rem; }
-        
-                                 .container .cart-area .cart-dropdown-content li .cart-item-desc {
-                                    position: relative;
-                                    z-index: 1;
-                                    display: -webkit-box;
-                                    display: -ms-flexbox;
-                                    display: flex;
-                                    -webkit-box-align: center;
-                                    -ms-flex-align: center;
-                                    align-items: center;
-                                    -webkit-box-flex: 0;
-                                    -ms-flex: 0 0 calc(100% - 50px);
-                                    flex: 0 0 calc(100% - 50px);
-                                    max-width: calc(100% - 50px);
-                                    width: calc(100% - 50px); }
-        
-                                     .container .cart-area .cart-dropdown-content li .cart-item-desc .image {
-                                        -webkit-box-flex: 0;
-                                        -ms-flex: 0 0 40px;
-                                        flex: 0 0 40px;
-                                        max-width: 40px;
-                                        width: 40px;
-                                        margin-right: 15px; }
-                                         .container .cart-area .cart-dropdown-content li .cart-item-desc .image img {
-                                          width: 40px; }
-                                       .container .cart-area .cart-dropdown-content li .cart-item-desc a {
-                                        font-size: 13px; }
-                                       .container .cart-area .cart-dropdown-content li .cart-item-desc p {
-                                        font-size: 12px;
-                                        margin-bottom: 0; }
-                                     .container .cart-area .cart-dropdown-content li .dropdown-product-remove {
-                                      -webkit-transition-duration: 500ms;
-                                      -o-transition-duration: 500ms;
-                                      transition-duration: 500ms;
-                                      -webkit-box-flex: 0;
-                                      -ms-flex: 0 0 30px;
-                                      flex: 0 0 30px;
-                                      max-width: 30px;
-                                      width: 30px;
-                                      height: 30px;
-                                      border: 1px solid #d6e6fb;
-                                      text-align: center;
-                                      line-height: 29px;
-                                      border-radius: 50%;
-                                      background-color: #ffffff;
-                                      color: #070a57;
-                                      font-size: 14px;
-                                      margin-left: 20px;
-                                      cursor: pointer; }
-                                       .container .cart-area .cart-dropdown-content li .dropdown-product-remove:hover,  .container .cart-area .cart-dropdown-content li .dropdown-product-remove:focus {
-                                        border-color: #d6e6fb;
-                                        background-color: #0f99f3;
-                                        color: #ffffff; }
-                                     .container .cart-area .cart-dropdown-content li:last-child {
-                                      margin-bottom: 0; }
-                                   .container .cart-area .cart-dropdown-content .cart-pricing li {
-                                    margin-bottom: 10px; }
-                                     .container .cart-area .cart-dropdown-content .cart-pricing li span {
-                                      font-size: 13px; }
-                                     .container .cart-area .cart-dropdown-content .cart-pricing li:last-child span {
-                                      font-weight: 700;
-                                      color: #070a57; }
-                                 .container .cart-area:hover .cart_quantity,  .container .cart-area:focus .cart_quantity {
-                                  background-color: #141414;
-                                  color: #ffffff; }
-                                 .container .cart-area:hover .cart-dropdown-content,  .container .cart-area:focus .cart-dropdown-content {
-                                  top: 50px;
-                                  opacity: 1;
-                                  visibility: visible; }
-        
+/* styles.css */
 
-                                  
-.container .account-area {
-    position: relative;
-    z-index: 1; }
+/* Hide the mobile menu by default */
+#mobile-menu {
+    display: none;
+    opacity: 0;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 50vw;
+    width: 50vw;
+    height: 100vh;
+    transition: opacity right 0.3s ease-in-out;
+    z-index: 1;
+    overflow-y: auto;
+}
 
+/* Style the mobile menu links */
+#mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 100px;
+}
 
-    .container .account-area .user-thumbnail {
-        position: relative;
-        z-index: 1;
-        width: 35px;
-        height: 35px;
-        line-height: 35px;
-        background-color: #ffffff;
-        text-align: center;
-        margin-right: 15px;
-        border-radius: 50%;
-        cursor: pointer; }
+#mobile-menu ul li {
+    padding: 15px;
+    text-align: center;
+    animation: fadeInLeft 0.5s ease-in-out;
+}
 
-        .container .account-area .user-thumbnail img {
-            border-radius: 50%; }
-          @media only screen and (max-width: 767px) {
-            .container .account-area .user-thumbnail {
-              width: 30px;
-              height: 30px;
-              line-height: 30px; } }
-          @media only screen and (min-width: 576px) and (max-width: 767px) {
-            .container .account-area .user-thumbnail {
-              width: 35px;
-              height: 35px;
-              line-height: 35px; } }
+#mobile-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 36px;
+}
 
-              .container .account-area .user-meta-dropdown {
-                background-color: #ffffff;
-                border-radius: 3px;
-                padding: 30px;
-                position: absolute;
-                right: -10px;
-                text-align: left;
-                top: 70px;
-                width: 200px;
-                z-index: 100;
-                box-shadow: 0 0 8px 0 rgba(47, 91, 234, 0.15);
-                -webkit-transition-duration: 500ms;
-                -o-transition-duration: 500ms;
-                transition-duration: 500ms;
-                opacity: 0;
-                visibility: hidden; }
-                .container .account-area .user-meta-dropdown .user-title {
-                  font-size: 14px;
-                  font-weight: 600;
-                  margin-bottom: 10px; }
-                   .container .account-area .user-meta-dropdown .user-title span {
-                    font-weight: 400; }
-                .container .account-area .user-meta-dropdown a {
-                  font-size: 13px;
-                  font-weight: 600;
-                  padding: 5px 0;
-                  display: block;
-                  color: #747794; }
-                   .container .account-area .user-meta-dropdown a:hover,  .container .account-area .user-meta-dropdown a:focus {
-                    color: #0f99f3; }
-              .container .account-area a {
-                border-radius: 50%;
-                width: 100%;
-                height: 100%;
-                display: block; }
-                .container .account-area a img {
-                  border-radius: 50%; }
-              .container .account-area:hover .user-meta-dropdown,  .container .account-area:focus .user-meta-dropdown {
-                top: 50px;
-                opacity: 1;
-                visibility: visible; }
+/* Style the menu toggle button */
+#menu-toggle {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 60px;
+}
 
+/* Close button */
+#close-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 2;
+    font-size: 36px;
+}
 
-                .container .account-area .user-meta-dropdown {
-                  background-color: #ffffff;
-                  border-radius: 3px;
-                  padding: 10px;
-                  position: absolute;
-                  right: -10px;
-                  text-align: left;
-                  top: 70px;
-                  width: 200px;
-                  z-index: 100;
-                  box-shadow: 0 0 8px 0 rgba(47, 91, 234, 0.15);
-                  -webkit-transition-duration: 500ms;
-                  -o-transition-duration: 500ms;
-                  transition-duration: 500ms;
-                  opacity: 0;
-                  visibility: hidden; }
-                  .container .account-area .user-meta-dropdown .user-title {
-                    font-size: 14px;
-                    font-weight: 600;
-                    margin-bottom: 10px; }
-                    .container .account-area .user-meta-dropdown .user-title span {
-                      font-weight: 400; }
-                  .container .account-area .user-meta-dropdown a {
-                    font-size: 13px;
-                    font-weight: 600;
-                    padding: 5px 0;
-                    display: block;
-                    color: #000000; }
-                    .container .account-area .user-meta-dropdown a:hover, .container .account-area .user-meta-dropdown a:focus {
-                      color: #f3be0f; }
-                .container .account-area a {
-                  border-radius: 50%;
-                  width: 100%;
-                  height: 100%;
-                  display: block; }
-                  .container .account-area a img {
-                    border-radius: 50%; }
-                .container .account-area:hover .user-meta-dropdown, .container .account-area:focus .user-meta-dropdown {
-                  top: 50px;
-                  opacity: 1;
-                  visibility: visible; }
-            
-
-
-
+.mheader .top-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 500px;
+}

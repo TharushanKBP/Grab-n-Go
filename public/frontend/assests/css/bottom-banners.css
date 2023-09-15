@@ -1,0 +1,36 @@
+.bottom-banners-main{
+    padding: 25px 25px 35px 25px;
+    background-color: #fff;
+}
+
+.bottom-banners-main > div > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 5px;
+}
+
+.bottom-banner-item{
+    height: 240px;
+    width: 32%;
+    border: none;
+    border-radius: 10px;
+    background-position: bottom right;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.top-heading{
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+.price-heading, .member-price-heading{
+    font-size: 14px;
+    margin-left: 10px;
+}

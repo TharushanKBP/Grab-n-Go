@@ -3,8 +3,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextButtonProduct = document.querySelector('.next-button-product');
     const productCarouselContainer = document.getElementById('productCarousel');
     const productSlides = document.querySelectorAll('.ps-single-slide');
-    const productSlideWidth = productSlides[0].clientWidth + 30; // Add 30px for the gap between slides
-    const maxProductSlide = productSlides.length - 4; // Show 4 slides at a time, so last visible slide index is (totalSlides - 4)
+    const viewportWidth = document.documentElement.clientWidth;
+
+    // Check if it's a mobile device
+    const isMobileDevicePS = viewportWidth <= 992;
+    
+    // Adjust productSlideWidth and maxProductSlide based on device type
+    const productSlideWidth = isMobileDevicePS ? productSlides[0].clientWidth + 80 : productSlides[0].clientWidth + 30;
+    const maxProductSlide = isMobileDevicePS ? productSlides.length - 2 : productSlides.length - 4;
+    
     let currentProductSlide = 0;
     let autoScrollProductInterval;
 

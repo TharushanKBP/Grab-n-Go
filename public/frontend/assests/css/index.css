@@ -100,3 +100,26 @@
     border-radius: 5px;
     border: 1px solid #000;
 }
+
+@media screen and (max-width: 992px) {
+    .main-content > div > div{
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .hero-promo{
+        height: 640px;
+    }
+
+    .banner-h2{
+        font-size: 48px;
+    }
+
+    .banner-span{
+        font-size: 30px;
+    }
+
+    .banner-button{
+        font-size: 24px;
+    }
+}
