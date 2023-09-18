@@ -17,32 +17,30 @@ use Illuminate\Support\Facades\Auth;
 //authentication
 Route::get('user/authlogin', [\App\Http\Controllers\Frontend\IndexController::class, 'userAuthlogin'])->name('user.authlogin');
 Route::get('user/authregister', [\App\Http\Controllers\Frontend\IndexController::class, 'userAuthregister'])->name('user.authregister');
-
-
-
 Route::post('user/login', [\App\Http\Controllers\Frontend\IndexController::class, 'loginSubmit'])->name('login.submit');
 Route::post('user/register', [\App\Http\Controllers\Frontend\IndexController::class, 'registerSubmit'])->name('register.submit');
 Route::get('user/logout', [\App\Http\Controllers\Frontend\IndexController::class, 'logout'])->name('user.logout');
 
-
-
-
 //Frontend section
 Route::get('/', [\App\Http\Controllers\Frontend\IndexController::class, 'Home'])->name('Home');
+
+
+// my_account
+Route::get('/myaccount', [\App\Http\Controllers\Frontend\IndexController::class, 'myaccount'])->name('myaccount');
+
 
 // shop page
 Route::get('/shop', [\App\Http\Controllers\Frontend\IndexController::class, 'Shop'])->name('Shop');
 
-
 // single product 
-Route::get('/single_product', [\App\Http\Controllers\Frontend\IndexController::class, 'SingleProduct'])->name('SingleProduct');
+Route::get('single_product/{slug}/', [\App\Http\Controllers\Frontend\IndexController::class, 'SingleProduct'])->name('SingleProduct');
 
 
 // cart section
-Route::get('cart/store', [\App\Http\Controllers\Frontend\CartController::class, 'Cart'])->name('Cart');
-Route::post('cart/store', [\App\Http\Controllers\Frontend\CartController::class, 'cartStore'])->name('cart.store');
-Route::post('cart/delete', [\App\Http\Controllers\Frontend\CartController::class, 'cartDelete'])->name('cart.delete');
-Route::post('cart/update', [\App\Http\Controllers\Frontend\CartController::class, 'cartUpdate'])->name('cart.update');
+Route::get('cart', [\App\Http\Controllers\Frontend\CartController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [\App\Http\Controllers\Frontend\CartController::class, 'addToCart'])->name('add_to_cart');
+Route::patch('update-cart', [\App\Http\Controllers\Frontend\CartController::class, 'update'])->name('update_cart');
+Route::delete('remove-from-cart', [\App\Http\Controllers\Frontend\CartController::class, 'remove'])->name('remove_from_cart');
 
 //Checkout section
 Route::get('checkout 1', [\App\Http\Controllers\Frontend\CheckoutController::class, 'checkout1'])->name('checkout1')->middleware('user');

@@ -214,7 +214,7 @@
                             <!--Minicart-->
                             <div class="header-cart iconset pe-0">
                                 <a href="" class="header-cart btn-minicart icon-link clr-none d-flex" data-bs-toggle="offcanvas" data-bs-target="#minicart-drawer">
-                                    <span class="iconCot"><i class="hdr-icon icon anm anm-basket-l"></i><span class="cart-count">2</span></span>
+                                    <span class="iconCot"><i class="hdr-icon icon anm anm-basket-l"></i><span class="cart-count">{{ count((array) session('cart')) }}</span></span>
                                     <span class="text d-none d-md-flex flex-column text-left">Basket <small class="price text-primary">LKR 234</small></span>
                                 </a>
                             </div>
@@ -584,52 +584,34 @@
                 </div>
                 <div class="minicart-content">
                     <ul class="m-0 clearfix">
+                        @if(session('cart'))
+                        @foreach(session('cart') as $id => $details)
                         <li class="item d-flex justify-content-center align-items-center">
                             <a class="product-image rounded-4" href="">
-                                <img class="rounded-4 blur-up lazyload" data-src="{{asset('frontend/assests/images/products/cart-vegetables-product-img1.jpg')}}" src="{{asset('frontend/assests/images/products/cart-vegetables-product-img1.jpg')}}" alt="product" title="Product" width="120" height="170" />
+                                
+                                
                             </a>
                             <div class="product-details">
-                                <a class="product-title" href="">Kashmiri Apple</a>
-                                <div class="variant-cart my-2">Black / XL</div>
+                                <a class="product-title" href="">{{ $details['product_name'] }}</a>
+                                <!-- <div class="variant-cart my-2">Black / XL</div> -->
                                 <div class="priceRow">
                                     <div class="product-price">
-                                        <span class="price">LKR 54.00</span>
+                                        <span class="price">${{ $details['price'] }}</span> * <span class="count"> Quantity: {{ $details['quantity'] }}</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="qtyDetail text-center">
+                            <!-- <div class="qtyDetail text-center">
                                 <div class="qtyField">
                                     <a class="qtyBtn minus" href="#;"><i class="icon anm anm-minus-r"></i></a>
                                     <input type="text" name="quantity" value="1" class="qty rounded-pill">
                                     <a class="qtyBtn plus" href="#;"><i class="icon anm anm-plus-r"></i></a>
                                 </div>
                                 <a href="#" class="edit-i remove"><i class="icon anm anm-pencil-ar" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"></i></a>
-                                <a href="#" class="remove"><i class="icon anm anm-times-r" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove"></i></a>
-                            </div>
+                                <a href="#" class="remove "><i class="icon anm anm-times-r cart_remove" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove"></i></a>
+                            </div> -->
                         </li>
-                        <li class="item d-flex justify-content-center align-items-center">
-                            <a class="product-image rounded-4" href="">
-                                <img class="rounded-4 blur-up lazyload" data-src="{{asset('frontend/assests/images/products/cart-vegetables-product-img2.jpg')}}" src="{{asset('frontend/assests/images/products/cart-vegetables-product-img2.jpg')}}" alt="product" title="Product" width="120" height="170" />
-                            </a>
-                            <div class="product-details">
-                                <a class="product-title" href="">Organic Potatos</a>
-                                <div class="variant-cart my-2">Yellow / M</div>
-                                <div class="priceRow">
-                                    <div class="product-price">
-                                        <span class="price old-price">LKR 114.00</span><span class="price">LKR 99.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="qtyDetail text-center">
-                                <div class="qtyField">
-                                    <a class="qtyBtn minus" href="#;"><i class="icon anm anm-minus-r"></i></a>
-                                    <input type="text" name="quantity" value="1" class="qty rounded-pill">
-                                    <a class="qtyBtn plus" href="#;"><i class="icon anm anm-plus-r"></i></a>
-                                </div>
-                                <a href="#" class="edit-i remove"><i class="icon anm anm-pencil-ar" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"></i></a>
-                                <a href="#" class="remove"><i class="icon anm anm-times-r" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove"></i></a>
-                            </div>
-                        </li>
+                        @endforeach
+                        @endif
                     </ul>
                 </div>
                 <div class="minicart-bottom">
@@ -647,7 +629,12 @@
                     <div class="subtotal clearfix my-3">
                         <div class="totalInfo clearfix mb-1 d-none"><span>Shipping:</span><span class="item product-price">LKR 10.00</span></div>
                         <div class="totalInfo clearfix mb-1 d-none"><span>Tax:</span><span class="item product-price">LKR 0.00</span></div>
-                        <div class="totalInfo clearfix"><span>Total:</span><span class="item product-price">LKR 163.00</span></div>
+                        @php $total = 0
+                        @endphp
+                        @foreach((array) session('cart') as $id => $details)
+                        @php $total += $details['price'] * $details['quantity'] @endphp
+                        @endforeach
+                        <div class="totalInfo clearfix"><span>Total:</span><span class="item product-price">$ {{ $total }}</span></div>
 
                     </div>
                     <div class="agree-check customCheckbox">
@@ -657,7 +644,7 @@
                     </div>
                     <div class="minicart-action d-flex mt-3">
                         <a href="" class="proceed-to-checkout btn btn-outline-secondary rounded-pill w-50 me-1">Check Out</a>
-                        <a href="{{route('Cart')}}" class="cart-btn btn btn-outline-primary rounded-pill w-50 ms-1">View Cart</a>
+                        <a href="{{route('cart')}}" class="cart-btn btn btn-outline-primary rounded-pill w-50 ms-1">View Cart</a>
                     </div>
                 </div>
             </div>

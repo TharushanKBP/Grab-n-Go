@@ -31,35 +31,34 @@
             <div class="product-details-img product-thumb-left-style d-flex justify-content-center">
               <!-- Product Thumb -->
               <div class="product-thumb thumb-left">
+
                 <div id="gallery" class="product-thumb-vertical h-100">
-                  <a data-image="{{asset('frontend/assests/images/products/product2.jpg')}}" data-zoom-image="{{asset('frontend/assests/images/products/product2.jpg')}}" class="slick-slide slick-cloned active">
-                    <img class="blur-up lazyload rounded-0" data-src="{{asset('frontend/assests/images/products/product2.jpg')}}" src="{{asset('frontend/assests/images/products/product2.jpg')}}" alt="product" width="625" height="808" />
+                  @php
+                  $photo=explode(',',$product->photo)
+                  @endphp
+                  @foreach($photo as $key=>$photo)
+                  <a data-image="" data-zoom-image="" class="slick-slide slick-cloned active">
+                    <img class="blur-up lazyload rounded-0" data-src="" src="{{$photo}}" alt="product" width="625" height="808" />
                   </a>
-                  <a data-image="{{asset('frontend/assests/images/products/product2-1.jpg')}}" data-zoom-image="{{asset('frontend/assests/images/products/product2-1.jpg')}}" class="slick-slide slick-cloned">
-                    <img class="blur-up lazyload rounded-0" data-src="{{asset('frontend/assests/images/products/product2-1.jpg')}}" src="{{asset('frontend/assests/images/products/product1-1.jpg')}}" alt="product" width="625" height="808" />
-                  </a>
-                  <a data-image="{{asset('frontend/assests/images/products/product2-2.jpg')}}" data-zoom-image="{{asset('frontend/assests/images/products/product2-2.jpg')}}" class="slick-slide slick-cloned">
-                    <img class="blur-up lazyload rounded-0" data-src="assests/images/products/product2-2.jpg" src="assests/images/products/product2-2.jpg" alt="product" width="625" height="808" />
-                  </a>
-                  <a data-image="assests/images/products/product2-3.jpg" data-zoom-image="assests/images/products/product2-3.jpg" class="slick-slide slick-cloned">
-                    <img class="blur-up lazyload rounded-0" data-src="assests/images/products/product2-3.jpg" src="assests/images/products/product1-3.jpg" alt="product" width="625" height="808" />
-                  </a>
-                  <a data-image="assests/images/products/product2-4.jpg" data-zoom-image="assests/images/products/product2-4.jpg" class="slick-slide slick-cloned">
-                    <img class="blur-up lazyload rounded-0" data-src="assests/images/products/product2-4.jpg" src="assests/images/products/product2-4.jpg" alt="product" width="625" height="808" />
-                  </a>
-                  <a data-image="assests/images/products/product2-5.jpg" data-zoom-image="assests/images/products/product2-5.jpg" class="slick-slide slick-cloned">
-                    <img class="blur-up lazyload rounded-0" data-src="assests/images/products/product2-5.jpg" src="assests/images/products/product2-5.jpg" alt="product" width="625" height="808" />
-                  </a>
+                  @endforeach
                 </div>
+
               </div>
               <!-- End Product Thumb -->
 
               <!-- Product Main -->
               <div class="zoompro-wrap product-zoom-right rounded-0">
                 <!-- Product Image -->
-                <div class="zoompro-span">
-                  <img id="zoompro" class="zoompro rounded-0" src="assests/images/products/product2.jpg" data-zoom-image="assests/images/products/product2.jpg" alt="product" width="625" height="808" />
+                @php
+                $photo=explode(',',$product->photo)
+                @endphp
+                @foreach($photo as $key=>$photo)
+                <div class="carousel-item {{$key==0 ? 'active' : ''}}">
+                  <a class="gallery_img" href="{{$photo}}" title="{{$product->title}}">
+                    <img class="d-block w-100" src="{{$photo}}" alt="{{$product->title}}">
+                  </a>
                 </div>
+                @endforeach
                 <!-- End Product Image -->
               </div>
               <!-- End Product Main -->
@@ -89,7 +88,7 @@
               </div>
               <span class="label-text ms-2 d-none">in Fashion</span>
             </div>
-            <h2 class="product-main-title">Product Layout Style2</h2>
+            <h2 class="product-main-title">{{$product->title}}</h2>
             <!-- Product Reviews -->
             <div class="product-review d-flex-center mb-3">
               <div class="reviewStar d-flex-center">
@@ -100,14 +99,12 @@
             <!-- End Product Reviews -->
             <!-- Product Price -->
             <div class="product-price d-flex-center my-3">
-              <span class="price">LKR 249.00</span>
+              <span class="price">LKR {{$product->regular_price}}.00</span>
             </div>
             <!-- End Product Price -->
             <!-- Sort Description -->
             <div class="sort-description mb-3">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum
+              {!! html_entity_decode($product->description)!!}
             </div>
             <!-- End Sort Description -->
             <!--Product Availability-->
@@ -144,7 +141,7 @@
             <!-- Swatches -->
             <div class="product-swatches-option">
               <!-- Swatches Color -->
-              <div class="product-item swatches-image w-100 mb-4 swatch-0 option1" data-option-index="0">
+              <!-- <div class="product-item swatches-image w-100 mb-4 swatch-0 option1" data-option-index="0">
                 <label class="label d-flex align-items-center">Color:<span class="slVariant ms-1 fw-bold">Blue</span></label>
                 <ul class="variants-clr swatches d-flex-center pt-1 clearfix">
                   <li class="swatch x-large available active blue">
@@ -163,10 +160,10 @@
                     <span class="swatchLbl" data-bs-toggle="tooltip" data-bs-placement="top" title="Yellow"></span>
                   </li>
                 </ul>
-              </div>
+              </div> -->
               <!-- End Swatches Color -->
               <!-- Swatches Size -->
-              <div class="product-item swatches-size w-100 mb-4 swatch-1 option2" data-option-index="1">
+              <!-- <div class="product-item swatches-size w-100 mb-4 swatch-1 option2" data-option-index="1">
                 <label class="label d-flex align-items-center">Size:<span class="slVariant ms-1 fw-bold">S</span>
                   <a href="#sizechart-modal" class="text-link sizelink text-muted size-chart-modal" data-bs-toggle="modal" data-bs-target="#sizechart_modal">Size Guide</a></label>
                 <ul class="variants-size size-swatches d-flex-center pt-1 clearfix">
@@ -186,7 +183,7 @@
                     <span class="swatchLbl" data-bs-toggle="tooltip" data-bs-placement="top" title="XL">XL</span>
                   </li>
                 </ul>
-              </div>
+              </div> -->
               <!-- End Swatches Size -->
             </div>
             <!-- End Swatches -->
@@ -264,7 +261,7 @@
 
           <!-- Product Info -->
           <div class="trustseal-img mt-3 mt-md-4">
-            <img src="assests/images/icons/powerby-cards.jpg" alt="powerby cards" width="470" />
+            <img src="{{asset('frontend/assests/images/icons/powerby-cards.jpg')}}" alt="powerby cards" width="470" />
           </div>
           <!-- End Product Info -->
         </div>
@@ -329,7 +326,7 @@
               <div class="col-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="video-popup-content position-relative">
                   <a href="#productVideo-modal" class="popup-video video-button d-flex align-items-center justify-content-center rounded-0" data-bs-toggle="modal" data-bs-target="#productVideo_modal" title="View Video">
-                    <img class="rounded-0 w-100 d-block blur-up lazyload" data-src="assests/images/content/product-detail-img-1.jpg" src="assests/images/content/product-detail-img-1.jpg" alt="image" width="550" height="660" />
+                    <img class="rounded-0 w-100 d-block blur-up lazyload" data-src="{{asset('frontend/assests/images/content/product-detail-img-1.jpg')}}" src="{{asset('frontend/assests/images/content/product-detail-img-1.jpg')}}" alt="image" width="550" height="660" />
                     <i class="icon anm anm-play-cir"></i>
                   </a>
                 </div>
@@ -618,7 +615,7 @@
                 <div class="review-inner">
                   <div class="spr-review d-flex w-100">
                     <div class="spr-review-profile flex-shrink-0">
-                      <img class="blur-up lazyload" data-src="assests/images/users/testimonial2.jpg" src="assests/images/users/testimonial2.jpg" alt="" width="200" height="200" />
+                      <img class="blur-up lazyload" data-src="{{asset('frontend/assests/images/users/testimonial2.jpg')}}" src="{{asset('frontend/assests/images/users/testimonial2.jpg')}}" alt="" width="200" height="200" />
                     </div>
                     <div class="spr-review-content flex-grow-1">
                       <div class="d-flex justify-content-between flex-column mb-2">
@@ -639,7 +636,7 @@
                   </div>
                   <div class="spr-review d-flex w-100">
                     <div class="spr-review-profile flex-shrink-0">
-                      <img class="blur-up lazyload" data-src="assests/images/users/testimonial1.jpg" src="assests/images/users/testimonial1.jpg" alt="" width="200" height="200" />
+                      <img class="blur-up lazyload" data-src="{{asset('frontend/assests/images/users/testimonial1.jpg')}}" src="{{asset('frontend/assests/images/users/testimonial1.jpg')}}" alt="" width="200" height="200" />
                     </div>
                     <div class="spr-review-content flex-grow-1">
                       <div class="d-flex justify-content-between flex-column mb-2">
@@ -722,19 +719,99 @@
 
       <div class="product-slider-4items gp15 arwOut5 hov-arrow circle-arrow grid-products pro-hover3">
 
+        @php
+        $new_products=\App\Models\Product::where(['status'=>'active'])->orderBy('id','DESC')->limit('10')->get();
+        @endphp
+
+        @if(count($new_products)>0)
+
+        @foreach($new_products as $nproduct)
 
 
+        <div class="item col-item">
+
+          <div class="product-box">
+            <!-- Start Product Image -->
+            <div class="product-image">
+              <!-- Start Product Image -->
+              <a href="#" class="product-img rounded-4">
+                @php
+                $photo=explode(',',$nproduct->photo)
+                @endphp
+                <!-- Image -->
+                <img class="primary rounded-4 blur-up lazyload" data-src="{{$photo[0]}}" src="{{$photo[0]}}" alt="Product" title="Product" width="400" height="400" />
+                <!-- End Image -->
+                <!-- Hover Image -->
+                <img class="hover rounded-4 blur-up lazyload" data-src="{{$photo[1]}}" src="{{$photo[1]}}" alt="Product" title="Product" width="400" height="400" />
+                <!-- End Hover Image -->
+              </a>
+              <!-- End Product Image -->
+              <!-- Product label -->
+              <div class="product-labels round-pill"><span class="lbl pr-label4">Sale</span></div>
+              <!-- End Product label -->
+            </div>
+            <!-- End Product Image -->
+            <!-- Start Product Details -->
+            <div class="product-details text-left">
+              <!--Product Vendor-->
+
+              <!--End Product Vendor-->
+              <div class="product-name-price">
+                <!-- Product Name -->
+                <div class="product-name">
+                  <a href="#">{{$nproduct->title}}</a>
+                </div>
+                <!-- End Product Name -->
+                <!-- Product Price -->
+                <div class="product-price m-0">
+                  <span class="price old-price"></span><span class="price">LKR.{{$nproduct->regular_price}}.00</span>
+                </div>
+                <!-- End Product Price -->
+              </div>
+              <!-- Product Review -->
+              <div class="product-review">
+                <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star-o"></i>
+                <span class="caption hidden ms-1">3 Reviews</span>
+              </div>
+              <!-- End Product Review -->
+              <!--Product Button-->
+              <div class="button-bottom-action style1">
+                <div class="button-left">
+                  <!--Cart Button-->
+                  <a href="#" data-quantity="1" data-product-id="{{$nproduct->id}}" class="add_to_cart" id="add_to_cart{{$nproduct->id}}">Add to Cart</a>
+                  <!--End Cart Button-->
+                </div>
+                <div class="button-right">
+                  <!--Quick View Button-->
+                  <a href="#" class="btn-icon quickview quick-view-modal" data-bs-toggle="modal" data-bs-target="#quickview_modal">
+                    <span class="icon-wrap d-flex-justify-center h-100 w-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View"><i class="icon anm anm-search-plus-l"></i></span>
+                  </a>
+                  <!--End Quick View Button-->
+                  <!--Wishlist Button-->
+                  <a href="#" class="btn-icon wishlist" data-bs-toggle="tooltip" data-bs-placement="top" title="Add To Wishlist"><i class="icon anm anm-heart-l"></i></a>
+                  <!--End Wishlist Button-->
+                  <!--Compare Button-->
+                  <a href="#" class="btn-icon compare" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Compare"><i class="icon anm anm-random-r"></i></a>
+                  <!--End Compare Button-->
+                </div>
+              </div>
+              <!--End Product Button-->
+            </div>
+            <!-- End product details -->
+          </div>
+
+          @endforeach
+          @endif
+
+        </div>
+
+        <div class="view-collection text-center mt-4 mt-md-5 d-none">
+          <a href="#" class="btn btn-secondary btn-lg">View Collection</a>
+        </div>
       </div>
-
-      <div class="view-collection text-center mt-4 mt-md-5 d-none">
-        <a href="#" class="btn btn-secondary btn-lg">View Collection</a>
-      </div>
-    </div>
   </section>
   <!--End Related Products-->
 </div>
 <!-- End Body Container -->
-
-
 
 @endsection

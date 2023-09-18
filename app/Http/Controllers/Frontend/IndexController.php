@@ -21,7 +21,7 @@ class IndexController extends Controller
     {
         $product = Product::where(['status' => 'active'])->orderBy('id', 'DESC')->limit('15')->get();
 
-        return view('frontend.pages.index', compact('product'));
+        return view('frontend.index', compact('product'));
     }
 
     public function userAuthlogin()
@@ -96,17 +96,22 @@ class IndexController extends Controller
         return view('frontend.pages.shop');
     }
 
-    public function SingleProduct()
+    public function SingleProduct($slug)
     {
         // return $slug;
         // $product = Product::where(['status' => 'active'])->orderBy('id', 'DESC')->limit('15')->get();
         // return view('frontend.pages_main.single_product_main',compact('product'));
 
-        // $product = Product::where('slug', $slug)->first();
-        // if ($product) {
-        return view('frontend.pages.single_product');
-        // } else {
-        //     return 'Product details not found';
-        // }
+        $product = Product::where('slug', $slug)->first();
+        if ($product) {
+            return view('frontend.pages.single_product', compact('product'));
+        } else {
+            return 'Product details not found';
+        }
+    }
+
+    public function myaccount()
+    {
+        return view('frontend.pages.my-account');
     }
 }

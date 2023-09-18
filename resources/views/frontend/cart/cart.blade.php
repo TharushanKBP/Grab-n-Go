@@ -45,6 +45,12 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            @php $total = 0 @endphp
+                            @if(session('cart'))
+                            @foreach(session('cart') as $id => $details)
+                            @php $total += $details['price'] * $details['quantity'] @endphp
+
                             <tr class="cart-row cart-flex position-relative">
                                 <td class="cart-delete text-center small-hide"><a href="#" class="cart-remove remove-icon position-static" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove to Cart"><i class="icon anm anm-times-r"></i></a></td>
                                 <td class="cart-image cart-flex-item">
@@ -52,17 +58,17 @@
                                 </td>
                                 <td class="cart-meta small-text-left cart-flex-item">
                                     <div class="list-view-item-title">
-                                        <a href="#">Oxford Cuban Shirt</a>
+                                        <a href="#">{{ $details['product_name'] }}</a>
                                     </div>
                                     <div class="cart-meta-text">
-                                        Color: Black<br>Size: Small<br>Qty: 2
+                                        Qty: {{ $details['quantity'] }}
                                     </div>
                                     <div class="cart-price d-md-none">
                                         <span class="money fw-500">LKR 99.00</span>
                                     </div>
                                 </td>
                                 <td class="cart-price cart-flex-item text-center small-hide">
-                                    <span class="money">LKR 99.00</span>
+                                    <span class="money">LKR {{ $details['price'] }}</span>
                                 </td>
                                 <td class="cart-update-wrapper cart-flex-item text-end text-md-center">
                                     <div class="cart-qty d-flex justify-content-end justify-content-md-center">
@@ -75,42 +81,12 @@
                                     <a href="#" title="Remove" class="removeMb d-md-none d-inline-block text-decoration-underline mt-2 me-3">Remove</a>
                                 </td>
                                 <td class="cart-price cart-flex-item text-center small-hide">
-                                    <span class="money fw-500">LKR 198.00</span>
+                                    <span class="money fw-500">LKR {{ $total }}</span>
                                 </td>
                             </tr>
-                            <tr class="cart-row cart-flex position-relative">
-                                <td class="cart-delete text-center small-hide"><a href="#" class="cart-remove remove-icon position-static" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove to Cart"><i class="icon anm anm-times-r"></i></a></td>
-                                <td class="cart-image cart-flex-item">
-                                    <a href="#"><img class="cart-image rounded-0 blur-up lazyload" data-src="{{asset('frontend/assests/images/products/product2-120x170.jpg')}}" src="{{asset('frontend/assests/images/products/product2-120x170.jpg')}}" alt="Sunset Sleep Scarf Top" width="120" height="170" /></a>
-                                </td>
-                                <td class="cart-meta small-text-left cart-flex-item">
-                                    <div class="list-view-item-title">
-                                        <a href="#">Cuff Beanie Cap</a>
-                                    </div>
-                                    <div class="cart-meta-text">
-                                        Color: Black<br>Size: Small<br>Qty: 1
-                                    </div>
-                                    <div class="cart-price d-md-none">
-                                        <span class="money fw-500">LKR 128.00</span>
-                                    </div>
-                                </td>
-                                <td class="cart-price cart-flex-item text-center small-hide">
-                                    <span class="money">LKR 128.00</span>
-                                </td>
-                                <td class="cart-update-wrapper cart-flex-item text-end text-md-center">
-                                    <div class="cart-qty d-flex justify-content-end justify-content-md-center">
-                                        <div class="qtyField">
-                                            <a class="qtyBtn minus" href="#;"><i class="icon anm anm-minus-r"></i></a>
-                                            <input class="cart-qty-input qty" type="text" name="updates[]" value="1" pattern="[0-9]*" />
-                                            <a class="qtyBtn plus" href="#;"><i class="icon anm anm-plus-r"></i></a>
-                                        </div>
-                                    </div>
-                                    <a href="#" title="Remove" class="removeMb d-md-none d-inline-block text-decoration-underline mt-2 me-3">Remove</a>
-                                </td>
-                                <td class="cart-price cart-flex-item text-center small-hide">
-                                    <span class="money fw-500">LKR 128.00</span>
-                                </td>
-                            </tr>
+                            @endforeach
+                            @endif
+
                         </tbody>
                         <tfoot>
                             <tr>
@@ -182,15 +158,15 @@
                     <div class="cart-order-detail cart-col">
                         <div class="row g-0 border-bottom pb-2">
                             <span class="col-6 col-sm-6 cart-subtotal-title"><strong>Subtotal</strong></span>
-                            <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money">LKR 226.00</span></span>
+                            <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money"></span></span>
                         </div>
                         <div class="row g-0 border-bottom py-2">
                             <span class="col-6 col-sm-6 cart-subtotal-title"><strong>Coupon Discount</strong></span>
-                            <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money">-LKR 25.00</span></span>
+                            <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money"></span></span>
                         </div>
                         <div class="row g-0 border-bottom py-2">
                             <span class="col-6 col-sm-6 cart-subtotal-title"><strong>Tax</strong></span>
-                            <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money">LKR 10.00</span></span>
+                            <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money"></span></span>
                         </div>
                         <div class="row g-0 border-bottom py-2">
                             <span class="col-6 col-sm-6 cart-subtotal-title"><strong>Shipping</strong></span>
@@ -198,7 +174,7 @@
                         </div>
                         <div class="row g-0 pt-2">
                             <span class="col-6 col-sm-6 cart-subtotal-title fs-6"><strong>Total</strong></span>
-                            <span class="col-6 col-sm-6 cart-subtotal-title fs-5 cart-subtotal text-end text-primary"><b class="money">LKR 311.00</b></span>
+                            <span class="col-6 col-sm-6 cart-subtotal-title fs-5 cart-subtotal text-end text-primary"><b class="money">LKR {{ $total }}</b></span>
                         </div>
 
                         <p class="cart-shipping mt-3">Shipping &amp; taxes calculated at checkout</p>
@@ -227,15 +203,92 @@
 
             <div class="product-slider-4items gp15 arwOut5 hov-arrow circle-arrow grid-products pro-hover3">
 
-                <?php
-                for ($i = 0; $i < 8; $i++) {
-                    echo '<div class="item col-item">';
+                @php
+                $new_products=\App\Models\Product::where(['status'=>'active'])->orderBy('id','DESC')->limit('10')->get();
+                @endphp
 
-                    @include('frontend.cart.product-loop-item');
+                @if(count($new_products)>0)
 
-                    echo '</div>';
-                }
-                ?>
+                @foreach($new_products as $nproduct)
+
+
+                <div class="item col-item">
+
+                    <div class="product-box">
+                        <!-- Start Product Image -->
+                        <div class="product-image">
+                            <!-- Start Product Image -->
+                            <a href="#" class="product-img rounded-4">
+                                @php
+                                $photo=explode(',',$nproduct->photo)
+                                @endphp
+                                <!-- Image -->
+                                <img class="primary rounded-4 blur-up lazyload" data-src="{{$photo[0]}}" src="{{$photo[0]}}" alt="Product" title="Product" width="400" height="400" />
+                                <!-- End Image -->
+                                <!-- Hover Image -->
+                                <img class="hover rounded-4 blur-up lazyload" data-src="{{$photo[1]}}" src="{{$photo[1]}}" alt="Product" title="Product" width="400" height="400" />
+                                <!-- End Hover Image -->
+                            </a>
+                            <!-- End Product Image -->
+                            <!-- Product label -->
+                            <div class="product-labels round-pill"><span class="lbl pr-label4">Sale</span></div>
+                            <!-- End Product label -->
+                        </div>
+                        <!-- End Product Image -->
+                        <!-- Start Product Details -->
+                        <div class="product-details text-left">
+                            <!--Product Vendor-->
+
+                            <!--End Product Vendor-->
+                            <div class="product-name-price">
+                                <!-- Product Name -->
+                                <div class="product-name">
+                                    <a href="#">{{$nproduct->title}}</a>
+                                </div>
+                                <!-- End Product Name -->
+                                <!-- Product Price -->
+                                <div class="product-price m-0">
+                                    <span class="price old-price"></span><span class="price">Rs.{{$nproduct->regular_price}}.00</span>
+                                </div>
+                                <!-- End Product Price -->
+                            </div>
+                            <!-- Product Review -->
+                            <div class="product-review">
+                                <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star-o"></i>
+                                <span class="caption hidden ms-1">3 Reviews</span>
+                            </div>
+                            <!-- End Product Review -->
+                            <!--Product Button-->
+                            <div class="button-bottom-action style1">
+                                <div class="button-left">
+                                    <!--Cart Button-->
+                                    <a href="#" data-quantity="1" data-product-id="{{$nproduct->id}}" class="add_to_cart" id="add_to_cart{{$nproduct->id}}">Add to Cart</a>
+                                    <!--End Cart Button-->
+                                </div>
+                                <div class="button-right">
+                                    <!--Quick View Button-->
+                                    <a href="#" class="btn-icon quickview quick-view-modal" data-bs-toggle="modal" data-bs-target="#quickview_modal">
+                                        <span class="icon-wrap d-flex-justify-center h-100 w-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View"><i class="icon anm anm-search-plus-l"></i></span>
+                                    </a>
+                                    <!--End Quick View Button-->
+                                    <!--Wishlist Button-->
+                                    <a href="#" class="btn-icon wishlist" data-bs-toggle="tooltip" data-bs-placement="top" title="Add To Wishlist"><i class="icon anm anm-heart-l"></i></a>
+                                    <!--End Wishlist Button-->
+                                    <!--Compare Button-->
+                                    <a href="#" class="btn-icon compare" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Compare"><i class="icon anm anm-random-r"></i></a>
+                                    <!--End Compare Button-->
+                                </div>
+                            </div>
+                            <!--End Product Button-->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+
+                    @endforeach
+                    @endif
+
+
+                </div>
 
             </div>
 
@@ -248,4 +301,47 @@
 </div>
 <!-- End Body Container -->
 
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+    $(".cart_update").change(function(e) {
+        e.preventDefault();
+
+        var ele = $(this);
+
+        $.ajax({
+            url: "{{ route('update_cart') }}",
+            method: "patch",
+            data: {
+                _token: '{{ csrf_token() }}',
+                id: ele.parents("tr").attr("data-id"),
+                quantity: ele.parents("tr").find(".quantity").val()
+            },
+            success: function(response) {
+                window.location.reload();
+            }
+        });
+    });
+
+    $(".cart_remove").click(function(e) {
+        e.preventDefault();
+
+        var ele = $(this);
+
+        if (confirm("Do you really want to remove?")) {
+            $.ajax({
+                url: "{{route('remove_from_cart')}}",
+                method: "DELETE",
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id: ele.parents("tr").attr("data-id")
+                },
+                success: function(response) {
+                    window.location.reload();
+                }
+            });
+        }
+    });
+</script>
 @endsection

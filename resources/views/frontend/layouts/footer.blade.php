@@ -154,6 +154,9 @@
 
 <script src="https://kit.fontawesome.com/376e5f6ada.js" crossorigin="anonymous"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <!-- Including Jquery/Javascript -->
 <!-- Plugins JS -->
 <script src="{{asset('frontend/assests/js/plugins.js')}}"></script>
@@ -162,7 +165,7 @@
 
 <script src="{{asset('frontend/assests/js/category-slider.js')}}"></script>
 
-<script src="{{asset('frontend/assests/js/product-slider.js')}}"></script>
+
 
 
 <!--Newsletter Modal Cookies-->

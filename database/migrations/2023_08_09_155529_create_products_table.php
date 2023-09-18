@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->longText('description')->nullable();
-            $table->text('photo');
+            $table->string('photo')->nullable();
             $table->integer('stock')->default(1);
             $table->enum('all_backorders', ['Do_not_allow', 'Allow_but_notify_customer', 'allow'])->default('allow');
             $table->enum('status', ['active', 'inactive'])->default('inactive');
