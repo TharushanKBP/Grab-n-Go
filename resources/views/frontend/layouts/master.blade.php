@@ -1,15 +1,29 @@
-@include('frontend.layouts.head')
+<head>
 
-@include('frontend.layouts.header')
+    @include('frontend.layouts.head')
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            @include('frontend.layouts.notification')
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner-grow" role="status">
+            <span class="sr-only">Loading...</span>
         </div>
     </div>
-</div>
 
-@yield('content')
+    <!-- Header Area -->
+    @include('frontend.layouts.header')
+    <!-- Header Area End -->
 
-@include('frontend.layouts.footer')
+    @yield('content')
+
+    <!-- Footer Area -->
+
+
+    @include('frontend.layouts.footer')
+    <!-- Footer Area -->
+
+
+    @include('frontend.layouts.script')
+
